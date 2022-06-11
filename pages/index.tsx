@@ -28,7 +28,6 @@ const Home: NextPage = () => {
           Log in
         </Button>
         <Button
-          className="signup-button"
           sx={{
             width: "13rem",
             height: "65px",

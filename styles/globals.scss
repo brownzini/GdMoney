@@ -76,23 +76,13 @@ body {
         }
 
         .login-button {
-            animation-name: example;
-            animation-duration: 4s;
             transition: all .5s ease-in-out;
             &:hover {
+                font-weight: 800;
                 background: white;
                 border: 1px solid #4c0f5c;
                 color: #3a0043;
             }
-
-            @keyframes example {
-                from {background-color: red;}
-                to {background-color: yellow;}
-            }
-        }
-
-        .signup-button:hover {
-            color: #007cae;
         }
     }
 }
