@@ -7,15 +7,6 @@ body {
   background: linear-gradient( to right, #141019, #1e1725, #1d1724, #141019 );
 }
 
-:root {
-    --main-color: #e4ab07;
-    --text-color: #FFF;
-    --bg-color: #1e1c2a;
-    --big-font: 5rem;
-    --h2-font: 2.25rem;
-    --p-font: 0.9rem
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -31,6 +22,45 @@ body {
         padding: 90px 17%;
     }
 
+    header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px 50px;
+        background: #1a1027;
+        height: 3rem;
+
+        .logo {
+            text-decoration: none;
+            img {
+                width: 10%;
+                height: 5%;
+            }
+        }
+        
+        .navbar {
+            display: flex;
+        }
+        
+        .navbar a {
+            color: #FFF;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        .navbar a:hover {
+            color: #e4ab07;
+            transition: .4s;
+        }
+    }
+    
     .home {
         width: 100%;
         min-height: 100vh;
@@ -40,12 +70,12 @@ body {
         align-items: center;
 
         .home-text h1 {
-            font-size: var(--big-font);
+            font-size: 5rem;
             color: #e4ab07;
         }
         
         .home-text h2 {
-            font-size: var(--h2-font);
+            font-size: 2.25rem;
             margin: 1rem 0 2rem;
             color:white;
         }
@@ -114,12 +144,12 @@ body {
         }
         
         .about-text span {
-            color: var(--main-color);
+            color: #e4ab07;
             font-weight: 600;
         }
         
         .about-text h2 {
-            font-size: var(--h2-font);
+            font-size: 2.25rem;
             color: white;
         }
         

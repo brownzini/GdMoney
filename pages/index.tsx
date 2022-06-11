@@ -1,9 +1,26 @@
 import type { NextPage } from 'next'
 import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 
 const Home: NextPage = () => {
   return (
     <div className="content">
+      <header>
+          <div className="logo">
+            <img
+              src="/assets/img/economia.png" 
+              alt="Initial image"
+            />
+          </div>
+          <ul className="navbar">
+              <li><Link href="#home">Home</Link></li>
+              <li><Link href="#about">About</Link></li>
+              <li><Link href="#service">Service</Link></li>
+              <li><Link href="#Swap">Swap</Link></li>
+              <li><Link href="#contact">Contato</Link></li>
+          </ul>
+      </header>
+
       <section className="home">
         <div className="home-text">
             <h1>GdMoney</h1>
