@@ -1,28 +1,3 @@
-/* animação
-
-.teste {
-    max-height: 100%;
-    width: auto;
-}
-  
-.teste main {
-    position: relative;
-    animation-duration: 3s;
-    animation-timing-function: ease-in-out;
-    animation-delay: 0.1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-fill-mode: none;
-    animation-play-state: running;
-    animation-name: hOnCMb;
-}
-  
-@keyframes hOnCMb {
-    from {top: 10px;left:10px;}
-    to {top: 40px;left:40px;}
-}
-*/
-
 html,
 body {
   padding: 0;
@@ -75,29 +50,52 @@ body {
             margin: 1rem 0 2rem;
         }
 
-        .home-img img {
-            margin-top: 50px;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            position: relative;
-            animation-duration: 1s;
-            animation-timing-function: ease-in-out;
-            animation-delay: 0.33s;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-            animation-fill-mode: none;
-            animation-play-state: running;
-            animation-name: hOnCMb;
+        .home-img {
+            margin-left: 5rem;
+
+            img {
+                margin-top: -55px;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+                position: relative;
+                animation-duration: 1s;
+                animation-timing-function: ease-in-out;
+                animation-delay: 0.33s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                animation-fill-mode: none;
+                animation-play-state: running;
+                animation-name: animateImage;
+            }
+
+            @keyframes animateImage {
+                from {top: 10px;}
+                to {top: 40px;}
+            }
         }
-        @keyframes hOnCMb {
-            from {top: 10px;}
-            to {top: 40px;}
+
+        .login-button {
+            animation-name: example;
+            animation-duration: 4s;
+            transition: all .5s ease-in-out;
+            &:hover {
+                background: white;
+                border: 1px solid #4c0f5c;
+                color: #3a0043;
+            }
+
+            @keyframes example {
+                from {background-color: red;}
+                to {background-color: yellow;}
+            }
+        }
+
+        .signup-button:hover {
+            color: #007cae;
         }
     }
 }
-
-
 
 /* Responsive */
 @media (max-width: 1560px) {

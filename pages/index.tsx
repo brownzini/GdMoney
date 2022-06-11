@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import Button from '@mui/material/Button';
 
 const Home: NextPage = () => {
   return (
@@ -13,7 +13,32 @@ const Home: NextPage = () => {
         <div className="home-img">
             <img src="/assets/img/economia.png" alt="Pagina Inicial"  />
         </div>
-        <button> SIGN UP </button>
+        <Button
+          className="login-button"
+          sx={{
+            background: "#602f68",
+            border: "1px solid #4c0f5c",
+            color: "white",
+            height: "67px",
+            width: "10rem",
+            mt: "-7rem",
+          }}
+          variant="outlined"
+        >
+          Log in
+        </Button>
+        <Button
+          className="signup-button"
+          sx={{
+            width: "13rem",
+            height: "65px",
+            mt: "-7rem",
+            ml: "-14rem",
+          }}
+          variant="outlined"
+        >
+          Sign up
+        </Button>
       </section>
 
       <footer>
@@ -25,4 +50,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Home;
