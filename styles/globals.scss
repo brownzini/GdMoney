@@ -221,6 +221,11 @@ body {
 
         .social {
             padding: 10px;
+
+            svg:nth-child(1) {
+                width: 50px;
+                height: 55px;
+            }
         }
     }
 }

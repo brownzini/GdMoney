@@ -74,7 +74,7 @@ const Home: NextPage = () => {
 
       <section className="about" id="about">
         <div className="about-img">
-            <img 
+            <img
               src="/assets/img/foguete.png" 
               alt="" 
             />
@@ -156,28 +156,49 @@ const Home: NextPage = () => {
       </section>
 
       <section className="footer">
-          <h3>Contact of creator</h3>
+          <h3>My Social Networks</h3>
           <div className="social">
             <Link 
               href="https://github.com/GabrielDavid1/GdMoney"
               sx={{ padding: "10px" }}
               target="_blank"
             >
-              <GitHubIcon />
+              <GitHubIcon sx={{
+                color:"white",
+                transition: "all .5s ease-in-out",
+                '&:hover': {
+                  color: "yellow",
+                },
+              }} />
             </Link>
             <Link 
               href="https://www.linkedin.com/in/gabriel-david-de-souza-a8a8b818b/"
               sx={{ padding: "10px" }}
               target="_blank"
             >
-              <LinkedInIcon />
+              <LinkedInIcon 
+                sx={{
+                  transition: "all .5s ease-in-out",
+                  '&:hover': {
+                    color: "#253478;",
+                  },
+                }}
+              />
             </Link>
             <Link 
               href="https://wa.me/5511998888888"
               sx={{ padding: "10px" }}
               target="_blank"
             >
-              <WhatsAppIcon />
+              <WhatsAppIcon 
+                sx={{
+                  color:"green",
+                  transition: "all .5s ease-in-out",
+                  '&:hover': {
+                    color: "#7bf07b",
+                  },
+                }} 
+              />
             </Link>
           </div>
       </section>
