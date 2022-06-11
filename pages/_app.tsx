@@ -17,7 +17,7 @@ interface MyAppProps extends AppProps {
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
-    <CacheProvider value={emotionCache}>
+    <>
       <Head>
         <title>GdMoney Project</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -27,6 +27,6 @@ export default function MyApp(props: MyAppProps) {
         <CssBaseline />
         <Component {...pageProps} />
       </ThemeProvider>
-    </CacheProvider>
+    </>
   );
 }
