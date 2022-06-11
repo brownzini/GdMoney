@@ -51,6 +51,19 @@ const Home: NextPage = () => {
         </Button>
       </section>
 
+      <section className="about" id="about">
+        <div className="about-img">
+            <img src="img/about.png" alt="" />
+        </div>
+
+        <div className="about-text">
+            <span>Sobre nós</span>
+            <h2>Trabalhamos com os <br /> melhores produtos</h2>
+            <p>Empresa que já está no ramo desde 2022, começando com marketplace e logo estaremos com nossa loja física.</p>
+            <a href="" className="btn">Saiba mais...</a>
+        </div>
+      </section>  
+
       <footer>
         <h1>
           Rodapé
