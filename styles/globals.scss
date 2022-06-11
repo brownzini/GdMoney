@@ -121,7 +121,7 @@ body {
         grid-template-columns: repeat(2, 2fr);
         grid-gap: 3.5rem;
         align-items: center;
-        
+        background: white;
         .about-img {
             img {
                 max-width: 100%;
@@ -144,18 +144,19 @@ body {
         }
         
         .about-text span {
-            color: #e4ab07;
+            color: orange;
             font-weight: 600;
         }
         
         .about-text h2 {
             font-size: 2.25rem;
-            color: white;
+            font-weight: 800;
+            color: #5414a6;
         }
         
         .about-text {
             p {
-                color: #b9b9b9;
+                color: #6b6b6b;
                 margin: 0.8rem 0 1.8rem;
                 line-height: 1.7;
             }
@@ -164,6 +165,48 @@ body {
                 display: inline-flex;
                 gap: 3px;
             }
+        }
+    }
+
+    .token {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+        grid-gap: 3.5rem;
+        align-items: center;
+        
+        .heading {
+            margin-left: -6rem;
+        }
+
+        .container {
+            .box {
+                background: rgba(255, 255, 255, 0.0705882353);
+                border-radius: 16px;
+                padding: 21px;
+
+                h2 {
+                    color: orange;
+                }
+    
+                h3 {
+                    font-family: 'Roboto', sans-serif;
+                    text-align: justify;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .swap {
+        width: 100%;
+        background: white;
+        align-items: center;
+        text-align: center;
+
+        h2 {
+            font-size: 2rem;
+            color: #3f4357;
+            margin-bottom: 30px;
         }
     }
 }
