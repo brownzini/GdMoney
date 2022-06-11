@@ -1,5 +1,5 @@
 {
-  "name": "GdMoney",
+  "name": "gdmoney",
   "version": "1.0.0",
   "description": "marketplace with blockchain integration",
   "repository": "https://github.com/GabrielDavid1/GdMoney.git",
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "next": "12.1.6",
+    "next-images": "^1.8.4",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "sass": "^1.52.3",
