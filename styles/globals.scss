@@ -209,6 +209,20 @@ body {
             margin-bottom: 30px;
         }
     }
+
+    .footer {
+        width: 100%;
+        background: black;
+        align-items: center;
+        text-align: center;
+        h3 {
+            color: white;
+        }
+
+        .social {
+            padding: 10px;
+        }
+    }
 }
 
 /* Responsive */

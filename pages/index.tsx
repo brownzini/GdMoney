@@ -1,13 +1,17 @@
 import type { NextPage } from 'next'
+import Image from 'next/image'
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const Home: NextPage = () => {
   return (
     <div className="content">
       <header>
           <div className="logo">
-            <img
+            <Image
               src="/assets/img/economia.png" 
               alt="Initial image"
             />
@@ -17,7 +21,7 @@ const Home: NextPage = () => {
               <li><Link href="#about">About</Link></li>
               <li><Link href="#token">Token</Link></li>
               <li><Link href="#Swap">Swap</Link></li>
-              <li><Link href="#contact">Contato</Link></li>
+              <li><Link href="#contact">Contact</Link></li>
           </ul>
       </header>
 
@@ -29,13 +33,13 @@ const Home: NextPage = () => {
 
         <div className="home-img">
             <div className="earth">
-              <img 
+              <Image 
                 src="/assets/img/felicidade.png" 
                 alt="Initial image"
               />
             </div>
             <div className="base">
-              <img 
+              <Image 
                 src="/assets/img/economia.png" 
                 alt="Initial image"
               />
@@ -70,7 +74,7 @@ const Home: NextPage = () => {
 
       <section className="about" id="about">
         <div className="about-img">
-            <img 
+            <Image 
               src="/assets/img/foguete.png" 
               alt="" 
             />
@@ -109,7 +113,7 @@ const Home: NextPage = () => {
 
       <section className="token" id="token">
         <div className="heading">
-          <img 
+          <Image 
               src="/assets/img/bnb.png" 
               alt=""
             />
@@ -151,11 +155,32 @@ const Home: NextPage = () => {
         </Link>
       </section>
 
-      <footer>
-        <h1>
-          Rodapé
-        </h1>
-      </footer>
+      <section className="footer">
+          <h3>Contact of creator</h3>
+          <div className="social">
+            <Link 
+              href="https://github.com/GabrielDavid1/GdMoney"
+              sx={{ padding: "10px" }}
+              target="_blank"
+            >
+              <GitHubIcon />
+            </Link>
+            <Link 
+              href="https://www.linkedin.com/in/gabriel-david-de-souza-a8a8b818b/"
+              sx={{ padding: "10px" }}
+              target="_blank"
+            >
+              <LinkedInIcon />
+            </Link>
+            <Link 
+              href="https://wa.me/5511998888888"
+              sx={{ padding: "10px" }}
+              target="_blank"
+            >
+              <WhatsAppIcon />
+            </Link>
+          </div>
+      </section>
     </div>
   )
 }
