@@ -11,7 +11,18 @@ const Home: NextPage = () => {
         </div>
 
         <div className="home-img">
-            <img src="/assets/img/economia.png" alt="Pagina Inicial"  />
+            <div className="earth">
+              <img 
+                src="/assets/img/felicidade.png" 
+                alt="Initial image"
+                />
+            </div>
+            <div className="base">
+              <img 
+                src="/assets/img/economia.png" 
+                alt="Initial image"
+              />
+            </div>
         </div>
         <Button
           className="login-button"

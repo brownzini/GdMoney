@@ -53,6 +53,19 @@ body {
         .home-img {
             margin-left: 5rem;
 
+            .earth {
+                position: absolute;
+                top: 8rem;
+                margin-left: 24rem;
+                right: 5rem;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .base {
+
             img {
                 margin-top: -55px;
                 max-height: 100%;
@@ -70,8 +83,10 @@ body {
             }
 
             @keyframes animateImage {
-                from {top: 10px;left:10px;}
-                to {top: 40px;left:40px;}
+                from {top: 10px;}
+                to {top: 40px;}
+            }
+
             }
         }
 
