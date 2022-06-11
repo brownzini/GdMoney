@@ -53,14 +53,32 @@ const Home: NextPage = () => {
 
       <section className="about" id="about">
         <div className="about-img">
-            <img src="img/about.png" alt="" />
+            <img src="/assets/img/foguete.png" alt="" />
         </div>
 
         <div className="about-text">
             <span>Sobre nós</span>
             <h2>Trabalhamos com os <br /> melhores produtos</h2>
             <p>Empresa que já está no ramo desde 2022, começando com marketplace e logo estaremos com nossa loja física.</p>
-            <a href="" className="btn">Saiba mais...</a>
+           
+            <div className="block">
+              <Button
+                sx={{ width: "13rem", height: "65px" }}
+                variant="outlined"
+              >
+                Contact
+              </Button>
+              <Button
+                href="https://www.investopedia.com/terms/b/blockchain.asp"
+                sx={{
+                  width: "13rem",
+                  height: "65px",
+                }}
+                variant="outlined"
+              >
+                What Is a Blockchain
+              </Button> 
+            </div>                      
         </div>
       </section>  
 
