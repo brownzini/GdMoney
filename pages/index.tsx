@@ -11,7 +11,7 @@ const Home: NextPage = () => {
     <div className="content">
       <header>
           <div className="logo">
-            <Image
+            <img
               src="/assets/img/economia.png" 
               alt="Initial image"
             />
@@ -33,13 +33,13 @@ const Home: NextPage = () => {
 
         <div className="home-img">
             <div className="earth">
-              <Image 
+              <img 
                 src="/assets/img/felicidade.png" 
                 alt="Initial image"
               />
             </div>
             <div className="base">
-              <Image 
+              <img 
                 src="/assets/img/economia.png" 
                 alt="Initial image"
               />
@@ -113,7 +113,7 @@ const Home: NextPage = () => {
 
       <section className="token" id="token">
         <div className="heading">
-          <Image 
+          <img 
               src="/assets/img/bnb.png" 
               alt=""
             />
