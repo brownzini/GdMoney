@@ -1,15 +1,48 @@
 import type { NextPage } from 'next'
-import Image from 'next/image'
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { useEffect, useRef, useState } from 'react';
 
 const Home: NextPage = () => {
+  const ref = useRef<HTMLDivElement>({} as HTMLDivElement);
+
+  function navbarToggle() {
+    const scrollTop = window.pageYOffset;
+    if (scrollTop > 30) {
+        ref.current.style.background = "rgb(26 16 39 / 87%)";
+    } else {
+        ref.current.style.background = "transparent"
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", navbarToggle);
+    return () => {
+      window.removeEventListener("scroll", navbarToggle);
+    };
+  }, []);
+
+  useEffect(() => {
+    const li = document.querySelector("#li");
+    const navbar = document.querySelector(".navbar");
+
+    if (li && navbar) {
+        li.addEventListener("click", function () {
+            navbar.classList.toggle("active");
+        });
+
+        window.onscroll = () => {
+            navbar.classList.remove("active");
+        };
+    }    
+  }, []);
+
   return (
     <div className="content">
-      <header>
+      <header ref={ref}>
           <div className="logo">
             <img
               src="/assets/img/economia.png" 
@@ -17,11 +50,26 @@ const Home: NextPage = () => {
             />
           </div>
           <ul className="navbar">
-              <li><Link href="#home">Home</Link></li>
-              <li><Link href="#about">About</Link></li>
-              <li><Link href="#token">Token</Link></li>
-              <li><Link href="#Swap">Swap</Link></li>
-              <li><Link href="#contact">Contact</Link></li>
+              <li>
+                <Link href="#home">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="#about">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="#token">
+                  Token
+                </Link>
+              </li>
+              <li>
+                <Link href="#contact">
+                  Contact
+                </Link>
+              </li>
           </ul>
       </header>
 
@@ -86,12 +134,17 @@ const Home: NextPage = () => {
             <p>Fictitious company that has been in the business since 2022, starting with marketplace and soon we will be with our physical store.</p>
            
             <div className="block">
-              <Button
-                sx={{ width: "13rem", height: "65px" }}
-                variant="outlined"
+              <Link  
+                href="#contact"
+                underline="none"
               >
-                Contact
-              </Button>
+                <Button
+                  sx={{ width: "13rem", height: "65px" }}
+                  variant="outlined"
+                >
+                  Contact
+                </Button>
+              </Link>
               <Link
                 href="https://www.investopedia.com/terms/b/blockchain.asp"
                 target="_blank"
@@ -131,7 +184,7 @@ const Home: NextPage = () => {
         </div>
       </section>
 
-      <section className="swap" id="swap">
+      <section className="swap">
         <h2>Do swap if you don't have bnb token</h2>
         <Link 
           href="https://pancakeswap.finance/swap"
@@ -155,7 +208,7 @@ const Home: NextPage = () => {
         </Link>
       </section>
 
-      <section className="footer">
+      <section className="footer" id="contact">
           <h3>My Social Networks</h3>
           <div className="social">
             <Link 
