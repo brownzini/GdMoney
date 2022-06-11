@@ -74,7 +74,7 @@ const Home: NextPage = () => {
 
       <section className="about" id="about">
         <div className="about-img">
-            <Image 
+            <img 
               src="/assets/img/foguete.png" 
               alt="" 
             />
