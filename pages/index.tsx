@@ -1,10 +1,15 @@
+/* Next */
 import type { NextPage } from 'next'
+
+/* React */
+import { useEffect, useRef } from 'react';
+
+/* Framework Material-UI */
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { useEffect, useRef, useState } from 'react';
 
 const Home: NextPage = () => {
   const ref = useRef<HTMLDivElement>({} as HTMLDivElement);
@@ -95,31 +100,41 @@ const Home: NextPage = () => {
         </div>
 
         <div className="button-groups">
-          <Button
-            className="login-button"
-            sx={{
-              background: "#602f68",
-              border: "1px solid #4c0f5c",
-              color: "white",
-              height: "67px",
-              width: "10rem",
-              mt: "-7rem",
-            }}
-            variant="outlined"
+          <Link
+            href="/login"
+            underline="none"
           >
-            Log in
-          </Button>
-          <Button
-            sx={{
-              width: "13rem",
-              height: "65px",
-              mt: "-10rem",
-              ml: "10.5rem",
-            }}
-            variant="outlined"
+            <Button
+              className="login-button"
+              sx={{
+                background: "#602f68",
+                border: "1px solid #4c0f5c",
+                color: "white",
+                height: "67px",
+                width: "10rem",
+                mt: "-7rem",
+              }}
+              variant="outlined"
+            >
+              Log in
+            </Button>
+          </Link>
+          <Link
+            href="/signup"
+            underline="none"
           >
-            Sign up
-          </Button>
+            <Button
+              sx={{
+                width: "13rem",
+                height: "65px",
+                mt: "-10rem",
+                ml: "10.5rem",
+              }}
+              variant="outlined"
+            >
+              Sign up
+            </Button>
+          </Link>
         </div>
       </section>
 

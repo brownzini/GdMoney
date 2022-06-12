@@ -237,6 +237,54 @@ body {
     }
 }
 
+.main {
+    width: 100vw;
+    height: 100vh;
+    background: #36475999;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    .box-img {
+        width: 300px;
+        height: 300px;
+        background: #fff;
+    }
+
+    .box-content {
+        width: 20vw;
+        height: 55vh;
+        background: #fff;
+
+        .heading {
+            header {
+                width:auto;
+                background: #602f68;
+                height: 0.9rem;
+            }
+
+            img {
+                display: block;
+                margin-left: 7.2rem;
+                margin-top: 1rem;
+            }
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 1.5rem;
+            margin-left: 2rem;
+
+            .field-password {
+                margin-top: 2rem;
+            }
+        }
+    }
+}
+
 /* Responsive */
 @media (max-width: 1600px) {
     .content {
