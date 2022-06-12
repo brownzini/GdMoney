@@ -1,53 +1,62 @@
 /* Next */
 import type { NextPage } from 'next';
+import Router from 'next/router';
 
 /* React */
 import { useState } from 'react';
 
 /* Framework Material-UI */
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import Link from '@mui/material/Link';
+
+import axios from 'axios';
+import { Password } from '../components/signup/password';
+import { RePassword } from '../components/signup/rePassword';
+import api from '../services/api';
 
 type State = {
-    amount: string;
-    password: string;
-    weight: string;
-    weightRange: string;
     showPassword: boolean;
+    password: string;
 }
   
 const Signup: NextPage = () => {
-    const [values, setValues] = useState<State>({
-        amount: '',
-        password: '',
-        weight: '',
-        weightRange: '',
-        showPassword: false,
-      });
-    
-      const handleChange =
-      (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValues({ ...values, [prop]: event.target.value });
-      };
-  
-    const handleClickShowPassword = () => {
-      setValues({
-        ...values,
-        showPassword: !values.showPassword,
-      });
-    };
-  
-    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
-    };
 
+    const [userName, setUserName] = useState<string>('');
+
+    const [values, setValues] = useState<State>({
+        password: '',
+        showPassword: false,
+    });
+    const [values2, setValues2] = useState<State>({
+        password: '',
+        showPassword: false,
+    });
+    
+    /**-----------------------------------------------------------------------------**/
+
+    function onChangeUserName(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+        setUserName(e.target.value);
+    }
+
+    async function signup () {
+        
+        await api.post('/users/create', {
+            username: userName,
+            password: values.password,
+        }, {
+            headers: {"Access-Control-Allow-Origin": "*"} 
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+       // Router.push('/login');
+    }
+
+    /**-----------------------------------------------------------------------------**/
     return (
         <div className="main-signup">
             <div className="box-content">
@@ -61,7 +70,7 @@ const Signup: NextPage = () => {
                 <div className="form"> 
                  <form>
                     <div className="field-username">
-                        <InputLabel 
+                        <InputLabel
                             htmlFor="username"
                             sx={{ fontWeight: "bold" }}
                         >
@@ -73,67 +82,19 @@ const Signup: NextPage = () => {
                            sx={{
                              width: "90%",
                              height:"30px"
-                         }}
+                           }}
+                           value={userName}
+                           onChange={(e) => onChangeUserName(e)}
                         />
                     </div>
-                    <div className="field-password">
-                        <InputLabel 
-                            htmlFor="outlined-adornment-password"
-                            sx={{ fontWeight: "bold" }}
-                        >
-                            Password
-                        </InputLabel>
-                        <OutlinedInput
-                            id="outlined-adornment-password"
-                            type={values.showPassword ? 'text' : 'password'}
-                            value={values.password}
-                            onChange={handleChange('password')}
-                            endAdornment={
-                            <InputAdornment position="end">
-                                <IconButton
-                                aria-label="toggle password visibility"
-                                onClick={handleClickShowPassword}
-                                onMouseDown={handleMouseDownPassword}
-                                edge="end"
-                                >
-                                {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                </IconButton>
-                            </InputAdornment>
-                            }
-                            sx={{
-                                width: "90%",
-                            }}
-                        />
-                    </div>
-                    <div className="field-repassword">
-                        <InputLabel 
-                            htmlFor="outlined-adornment-password"
-                            sx={{ fontWeight: "bold" }}
-                        >
-                            Re-Password
-                        </InputLabel>
-                        <OutlinedInput
-                            id="outlined-adornment-password"
-                            type={values.showPassword ? 'text' : 'password'}
-                            value={values.password}
-                            onChange={handleChange('password')}
-                            endAdornment={
-                            <InputAdornment position="end">
-                                <IconButton
-                                aria-label="toggle password visibility"
-                                onClick={handleClickShowPassword}
-                                onMouseDown={handleMouseDownPassword}
-                                edge="end"
-                                >
-                                {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                </IconButton>
-                            </InputAdornment>
-                            }
-                            sx={{
-                                width: "90%",
-                            }}
-                        />
-                    </div>
+                    <Password 
+                       values={values} 
+                       setValues={setValues}
+                    />
+                    <RePassword
+                       values={values2}
+                       setValues={setValues2}            
+                    />
                     <div className="button"> 
                         <Button
                           sx={{
@@ -149,6 +110,7 @@ const Signup: NextPage = () => {
                                 background: "#874191"
                             },
                           }}
+                          onClick={() => signup()}
                           variant="outlined"
                         >
                          SIGN UP 
