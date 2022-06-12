@@ -6,7 +6,6 @@ import { useState } from 'react';
 
 /* Framework Material-UI */
 import Button from '@mui/material/Button';
-
 import IconButton from '@mui/material/IconButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
@@ -14,6 +13,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Link from '@mui/material/Link';
 
 type State = {
     amount: string;
@@ -71,7 +71,7 @@ const Login: NextPage = () => {
                            id="outlined-basic" 
                            variant="outlined"
                            sx={{
-                             ml:"0.8rem",
+                             width: "90%",
                              height:"30px"
                          }}
                         />
@@ -101,20 +101,19 @@ const Login: NextPage = () => {
                             </InputAdornment>
                             }
                             sx={{
-                                width: "77%",
-                                ml:"0.8rem"
+                                width: "90%",
                             }}
                         />
                     </div>
                     <div className="button"> 
                         <Button
-                    
                         sx={{
-                            background: "#602f68",
-                            border: "1px solid #4c0f5c",
-                            color: "white",
+                            width: "15.2rem",
                             height: "55px",
-                            width: "13rem",
+                            background: "#602f68",
+                            color: "white",
+                            border: "1px solid #4c0f5c",
+                            mt:"0.8rem"
                         }}
                         variant="outlined"
                         >
@@ -122,7 +121,21 @@ const Login: NextPage = () => {
                         </Button>
                     </div>
                  </form>
+
+                 <div className="signup-field">
+                    If you don't have account,<Link>create your user.</Link>
+                 </div>
                 </div>
+            </div>
+            <div className="group-images">
+                <img 
+                  className="package-img" 
+                  src="/assets/img/package.png" 
+                />
+                <img 
+                  className="discount-img" 
+                  src="/assets/img/discount.png" 
+                />
             </div>
         </div>
     )

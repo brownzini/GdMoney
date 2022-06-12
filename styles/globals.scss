@@ -240,23 +240,18 @@ body {
 .main {
     width: 100vw;
     height: 100vh;
-    background: #36475999;
+    background: #e7f9ff;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     display: flex;
 
-    .box-img {
-        width: 300px;
-        height: 300px;
-        background: #fff;
-    }
-
     .box-content {
         width: 20vw;
-        height: 55vh;
+        height: 65vh;
         background: #fff;
+        z-index: 1000;
 
         .heading {
             header {
@@ -279,9 +274,18 @@ body {
             margin-left: 2rem;
 
             .field-password {
-                margin-top: 2rem;
+                margin-top: 2.5rem;
             }
+
+            .signup-field {
+                width: 15rem;
+                margin-top: 1rem;
+            }            
         }
+    }
+
+    .group-images {
+        position: absolute;
     }
 }
 
