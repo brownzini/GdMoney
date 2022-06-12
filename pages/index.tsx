@@ -124,6 +124,7 @@ const Home: NextPage = () => {
             underline="none"
           >
             <Button
+              className="signup-button"
               sx={{
                 width: "13rem",
                 height: "65px",

@@ -23,7 +23,7 @@ type State = {
     showPassword: boolean;
 }
   
-const Login: NextPage = () => {
+const Signup: NextPage = () => {
     const [values, setValues] = useState<State>({
         amount: '',
         password: '',
@@ -49,7 +49,7 @@ const Login: NextPage = () => {
     };
 
     return (
-        <div className="main-login">
+        <div className="main-signup">
             <div className="box-content">
               <div className="heading">
                 <header></header>
@@ -105,9 +105,38 @@ const Login: NextPage = () => {
                             }}
                         />
                     </div>
+                    <div className="field-repassword">
+                        <InputLabel 
+                            htmlFor="outlined-adornment-password"
+                            sx={{ fontWeight: "bold" }}
+                        >
+                            Re-Password
+                        </InputLabel>
+                        <OutlinedInput
+                            id="outlined-adornment-password"
+                            type={values.showPassword ? 'text' : 'password'}
+                            value={values.password}
+                            onChange={handleChange('password')}
+                            endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={handleClickShowPassword}
+                                onMouseDown={handleMouseDownPassword}
+                                edge="end"
+                                >
+                                {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+                            }
+                            sx={{
+                                width: "90%",
+                            }}
+                        />
+                    </div>
                     <div className="button"> 
                         <Button
-                        sx={{
+                          sx={{
                             width: "15.2rem",
                             height: "55px",
                             background: "#602f68",
@@ -119,17 +148,13 @@ const Login: NextPage = () => {
                                 color: "white",
                                 background: "#874191"
                             },
-                        }}
-                        variant="outlined"
+                          }}
+                          variant="outlined"
                         >
-                        Log in
+                         SIGN UP 
                         </Button>
                     </div>
                  </form>
-
-                 <div className="signup-field">
-                    If you don't have account,<Link>create your user.</Link>
-                 </div>
                 </div>
             </div>
             <div className="group-images">
@@ -146,4 +171,4 @@ const Login: NextPage = () => {
     )
 }
 
-export default Login;
+export default Signup;

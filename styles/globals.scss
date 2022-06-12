@@ -237,7 +237,7 @@ body {
     }
 }
 
-.main {
+.main-login {
     width: 100vw;
     height: 100vh;
     background: #e7f9ff;
@@ -252,7 +252,7 @@ body {
         height: 65vh;
         background: #fff;
         z-index: 1000;
-
+        box-shadow: 1px 1px 11px 0px;
         .heading {
             header {
                 width:auto;
@@ -289,6 +289,55 @@ body {
     }
 }
 
+.main-signup {
+    width: 100vw;
+    height: 100vh;
+    background: #e7f9ff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    .box-content {
+        width: 20vw;
+        height: 65vh;
+        background: #fff;
+        z-index: 1000;
+        box-shadow: 1px 1px 11px 0px;
+        .heading {
+            header {
+                width:auto;
+                background: #602f68;
+                height: 0.9rem;
+            }
+
+            img {
+                display: block;
+                margin-left: 7.2rem;
+                margin-top: 1rem;
+            }
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 1.5rem;
+            margin-left: 2rem;
+
+            .field-password {
+                margin-top: 2.5rem;
+            }
+            .field-repassword {
+                margin-top: 2.5rem;
+            }          
+        }
+    }
+
+    .group-images {
+        position: absolute;
+    }
+}
 /* Responsive */
 @media (max-width: 1600px) {
     .content {
@@ -297,6 +346,18 @@ body {
             .button-groups {
                 margin-top: 0rem;
             }
+        }
+    }
+
+    .main-login {
+        .box-content {
+            height: 40vh;
+        }
+    }
+
+    .main-signuo {
+        .box-content {
+            height: 40vh;
         }
     }
 }
@@ -310,6 +371,38 @@ body {
         .home {
             .button-groups {
                 margin-top: 0rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .main-login {
+        .box-content {
+            width: 26vw;
+            height: auto;
+            min-height: 60vh;
+
+            .form {
+                button {
+                    width: 90%;
+                    height: 50px;
+                }
+            }
+        }
+    }
+
+    .main-signup {
+        .box-content {
+            width: 26vw;
+            height: auto;
+            min-height: 60vh;
+
+            .form {
+                button {
+                    width: 90%;
+                    height: 50px;
+                }
             }
         }
     }
@@ -339,6 +432,16 @@ body {
                     }                   
                 }
             }
+        }
+    }
+    .main-login {
+        .box-content {
+            width: 26vw;
+        }
+    }
+    .main-signup {
+        .box-content {
+            width: 26vw;
         }
     }
 }
@@ -371,7 +474,8 @@ body {
                     width: 9rem;
                     height: 50px;
                 }
-                button:nth-child(2){
+
+                .signup-button{
                     margin-left: 5px;
                     margin-top: -7rem;
                 }
@@ -421,8 +525,178 @@ body {
             padding: 100px 7%;
         }
     }
+    .main-login {
+        width: 105vw;
+        height: 105vh;
+        background: #e7f9ff;
+        .box-content {
+            width: 40vw;
+            height: 45vh;
+        }
+        .group-images {
+            display: flex;
+            img {
+                width: 20rem;
+            }
+        }
+    }
+    .main-signup {
+        width: 105vw;
+        height: 105vh;
+        background: #e7f9ff;
+        .box-content {
+            width: 40vw;
+            height: 45vh;
+        }
+        .group-images {
+            display: flex;
+            img {
+                width: 20rem;
+            }
+        }
+    }
 }
 
 @media (max-width: 575px) {
+    .content {
+        .home {
+            .button-groups {
+                margin-left: -9rem;
+                .signup-button {
+                    margin-left: 19rem;
+                    margin-top: -10rem;
+                    height: 48px;
+                }
+            }
+        }
+    }
+    .main-login {
+        width: 105vw;
+        height: 105.1vh;
+        background: #e7f9ff;
+        .box-content {
+            width: 80vw;
+            min-height: 60vh;
+            height: auto;
+            .heading {
+                header {
+                  height: 10px;
+                }
+                
+                img {
+                  display: block;
+                  justify-content: center;
+                  align-items: center;
+                  width: 20vw;
+                }
+            }
 
+            .form {
+                .field-username {
+                    .MuiFormControl-root.MuiTextField-root.css-1t9mek6-MuiFormControl-root-MuiTextField-root {
+                        input{
+                            height: 5px;
+                        }
+                    }
+                }
+                .field-password {
+                    margin-top: 1rem;
+                }
+                button {
+                    width: 90%;
+                    height: 50px;
+                }
+                .signup-field {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        .group-images {
+            display: flex;
+            img {
+                width: 10rem;
+            }
+        }
+    } 
+    .main-signup {
+        width: 105vw;
+        height: 105.1vh;
+        background: #e7f9ff;
+        .box-content {
+            width: 80vw;
+            min-height: 60vh;
+            height: auto;
+            .heading {
+                header {
+                  height: 10px;
+                }
+                
+                img {
+                  display: block;
+                  justify-content: center;
+                  align-items: center;
+                  width: 20vw;
+                }
+            }
+
+            .form {
+                .field-username {
+                    .MuiFormControl-root.MuiTextField-root.css-1t9mek6-MuiFormControl-root-MuiTextField-root {
+                        input{
+                            height: 5px;
+                        }
+                    }
+                }
+                .field-password {
+                    margin-top: 1rem
+                }
+                .field-repassword {
+                    margin-top: 1rem
+                }                
+                button {
+                    width: 90%;
+                    height: 50px;
+                }
+                .signup-field {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        .group-images {
+            display: flex;
+            img {
+                width: 10rem;
+            }
+        }
+    } 
+}
+
+@media (max-width: 375px) {
+    .main-signup {
+        .box-content {
+            height:78vh;
+        }
+    }
+}
+
+@media (max-height: 1200px) {
+    .main-signup {
+        .box-content {
+            height: 50vh;
+        }
+    }
+}
+
+@media (max-height: 732px) {
+    .main-login {
+        .box-content {
+            height: 70vh;
+        }
+    }
+
+    .main-signup {
+        .box-content {
+            height: 70vh;
+        }
+    }
 }
