@@ -70,15 +70,19 @@ body {
         grid-gap: 1.5rem;
         align-items: center;
 
-        .home-text h1 {
-            font-size: 5rem;
-            color: #e4ab07;
-        }
-        
-        .home-text h2 {
-            font-size: 2.25rem;
-            margin: 1rem 0 2rem;
-            color:white;
+        .home-text {
+            z-index: 1000;
+
+            h1 {
+                font-size: 5rem;
+                color: #e4ab07;
+            }
+
+            h2 {
+                font-size: 2.25rem;
+                margin: 1rem 0 2rem;
+                color:white;
+            }
         }
 
         .home-img {
@@ -106,13 +110,15 @@ body {
             }
         }
 
-        .login-button {
-            transition: all .5s ease-in-out;
-            &:hover {
-                font-weight: 800;
-                background: white;
-                border: 1px solid #4c0f5c;
-                color: #3a0043;
+        .button-groups {
+            .login-button {
+                transition: all .5s ease-in-out;
+                &:hover {
+                    font-weight: 800;
+                    background: white;
+                    border: 1px solid #4c0f5c;
+                    color: #3a0043;
+                }
             }
         }
     }
@@ -232,18 +238,137 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 1560px) {
-
-}
-
-@media (max-width: 1140px) {
-    section {
-        padding: 50px 8%;
+@media (max-width: 1600px) {
+    .content {
+        .home {
+            min-height: 50vh;
+            .button-groups {
+                margin-top: 0rem;
+            }
+        }
     }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1500px) {
+    header {
+        padding: 15px 40px;
+    }
 
+    .content {
+        .home {
+            .button-groups {
+                margin-top: 0rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 1150px) {
+    section {
+        padding: 50px 8%;
+    }
+    .content {
+        .home {
+            .home-img {
+                .base {
+                    margin-left:-10rem;
+                    img {
+                        position: relative;
+                        width: 30rem;
+                        height: auto;
+                        left: 3rem;
+                        top: 5rem;
+                    }
+                }
+                .earth {
+                    img {
+                        width: 30rem;
+                        height: auto;
+                    }                   
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .content {
+        header {
+            padding: 10px 0px;
+        }
+        
+        .home {
+            grid-template-columns: 1fr;
+            text-align: left;
+            height: 70vh;
+            .home-text {
+                text-align:center;
+                h1 {
+                    font-size: 3.5rem;
+                }
+
+                h2 {
+                    font-size: 2rem;
+                }
+            }
+            .button-groups {
+                margin-top: 2rem;
+                text-align: center;
+                button {
+                    width: 9rem;
+                    height: 50px;
+                }
+                button:nth-child(2){
+                    margin-left: 5px;
+                    margin-top: -7rem;
+                }
+            }
+            .home-img {
+                display:none;
+            }
+        }
+
+        .about {
+            grid-template-columns: 1fr;
+            text-align: center;
+
+            .block {
+                button {
+                    width: auto;
+                    height: 50px;
+                }
+            }
+
+            .about-text {
+                h2 {
+                    font-size: 1rem;
+                }
+                p {
+                    font-size: 1rem;
+                }
+            }
+
+            .about-img {
+                order: 2;
+            }
+        }
+
+        .token {
+            .heading {
+                img {
+                    width: 10rem;
+                    height: auto;
+                    position: relative;
+                    left: 10.5rem;
+                }
+            }
+          }
+
+        section {
+            padding: 100px 7%;
+        }
+    }
 }
 
 @media (max-width: 575px) {
