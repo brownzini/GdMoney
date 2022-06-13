@@ -260,6 +260,12 @@ body {
                 height: 0.9rem;
             }
 
+            h1 {
+                padding: 10px;
+                text-align: center;
+                font-family: roboto;
+            }
+
             img {
                 display: block;
                 margin-left: 7.2rem;
@@ -312,9 +318,15 @@ body {
                 height: 0.9rem;
             }
 
+            h1 {
+                padding: 20px;
+                text-align: center;
+                font-family: roboto;
+            }
+
             img {
                 display: block;
-                margin-left: 7.2rem;
+                margin-left: 8.5rem;
                 margin-top: 1rem;
             }
         }
@@ -371,6 +383,17 @@ body {
         .home {
             .button-groups {
                 margin-top: 0rem;
+            }
+        }
+    }
+
+    .main-login {
+        .box-content {
+            width: 22vw;
+            height: 55vh;
+
+            button {  
+                width: 90%;
             }
         }
     }
@@ -682,7 +705,10 @@ body {
 @media (max-height: 1200px) {
     .main-signup {
         .box-content {
-            height: 50vh;
+            width: auto;
+            height:auto;
+            min-width: 20vw;
+            min-height:65vh;
         }
     }
 }
@@ -690,13 +716,25 @@ body {
 @media (max-height: 732px) {
     .main-login {
         .box-content {
-            height: 70vh;
+            width: auto;
+            height:auto;
+            min-height: 80vh;
+            .button {
+                button {
+                    width: 90%;
+                }
+            }
         }
     }
 
     .main-signup {
         .box-content {
-            height: 70vh;
+            width: auto;
+            height:auto;
+            min-height: 80vh;
+            button {  
+                width: 90%;
+            }
         }
     }
 }

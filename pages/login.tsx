@@ -53,10 +53,7 @@ const Login: NextPage = () => {
             <div className="box-content">
               <div className="heading">
                 <header></header>
-                <img 
-                  src="/assets/img/user.png" 
-                  alt="user" 
-                />
+                <h1>Login</h1>
               </div>
                 <div className="form"> 
                  <form>
@@ -107,28 +104,30 @@ const Login: NextPage = () => {
                     </div>
                     <div className="button"> 
                         <Button
-                        sx={{
-                            width: "15.2rem",
-                            height: "55px",
-                            background: "#602f68",
-                            color: "white",
-                            border: "1px solid #4c0f5c",
-                            transition: "all .5s ease-in-out",
-                            mt:"0.8rem",
-                            '&:hover': {
-                                color: "white",
-                                background: "#874191"
-                            },
-                        }}
+                          sx={{
+                              width: "15.2rem",
+                              height: "55px",
+                              background: "#602f68",
+                              color: "white",
+                              border: "1px solid #4c0f5c",
+                              transition: "all .5s ease-in-out",
+                              mt:"0.8rem",
+                              '&:hover': {
+                                  color: "white",
+                                  background: "#874191"
+                              },
+                          }}
                         variant="outlined"
                         >
-                        Log in
+                         Log in
                         </Button>
                     </div>
                  </form>
 
                  <div className="signup-field">
-                    If you don't have account,<Link>create your user.</Link>
+                    If you don't have account,<Link href="/signup">
+                                                create your user.
+                                              </Link>
                  </div>
                 </div>
             </div>

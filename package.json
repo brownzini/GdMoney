@@ -17,16 +17,20 @@
     "@emotion/react": "^11.9.0",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.8.1",
+    "@hookform/resolvers": "^2.9.1",
     "@mui/icons-material": "^5.8.3",
     "@mui/material": "^5.8.3",
     "@mui/styled-engine-sc": "^5.8.0",
     "axios": "^0.27.2",
+    "formik": "^2.2.9",
     "next": "12.1.6",
     "next-images": "^1.8.4",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-hook-form": "^7.32.0",
     "sass": "^1.52.3",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/node": "17.0.42",
