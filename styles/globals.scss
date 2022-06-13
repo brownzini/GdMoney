@@ -17,6 +17,20 @@ body {
     text-decoration: none;
 }
 
+body::-webkit-scrollbar {
+    width: 10px;   
+}
+ 
+body::-webkit-scrollbar-track {
+    background: linear-gradient( to right, #141019, #1e1725, #1d1724, #141019 );    /* color of the tracking area */
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: #3c2f49;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 1px solid #1e1725; /* creates padding around scroll thumb */
+}
+
 .content {
     section {
         padding: 90px 17%;
