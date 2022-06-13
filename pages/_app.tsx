@@ -1,12 +1,22 @@
+//React
 import * as React from 'react';
+
+//Next
 import Head from 'next/head';
 import { AppProps } from 'next/app';
-import { ThemeProvider } from '@mui/material/styles';
+
+//Compnents Framkework MUI
 import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import theme from '../theme';
+import { EmotionCache } from '@emotion/react';
 import createEmotionCache from '../createEmotionCache';
+
+//Styles / Themes
+import theme from '../theme';
 import '../styles/globals.scss';
+
+//Providers
+import { SessionsProvider } from '../context/sessions';
+import { ThemeProvider } from '@mui/material/styles';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -24,8 +34,10 @@ export default function MyApp(props: MyAppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
+        <SessionsProvider>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </SessionsProvider>
       </ThemeProvider>
     </>
   );

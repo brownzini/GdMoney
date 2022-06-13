@@ -61,7 +61,7 @@ const Login: NextPage = () => {
           }
       })
       .then(function (response) {
-            setCookie(null, 'token', JSON.stringify([{
+            setCookie(null, 'TOKEN', JSON.stringify([{
                token: response.data.token,
             }]), 
             { maxAge: 86400 * 7,
