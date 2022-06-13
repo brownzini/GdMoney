@@ -9,7 +9,9 @@ import { useSessions } from '../context/sessions';
 
 //Globals
 import session from '../global/session';
-import { LandingPage } from './landingPage';
+
+//Components page
+import { LandingPage } from '../components/page/landingPage';
 
 const Home: NextPage = () => { 
     const { token, setToken } = useSessions();
