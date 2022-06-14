@@ -44,8 +44,11 @@ export default function AccountMenu({ currentPage }:Prop) {
               padding: '18px',
               outline: 'none',
               borderBottom: (currentPage === 'Home') 
-                               ? '3px solid #f87dc0' 
+                               ? '3px solid #AE16F0' 
                                : 'none',
+              '&:hover': {
+                color: "#491061",
+              },
             }}
           >
             Home
@@ -56,7 +59,15 @@ export default function AccountMenu({ currentPage }:Prop) {
            underline="none"                       
         >
          <Typography 
-           sx={{ minWidth: 100 }}
+           sx={{ 
+            minWidth: 100,
+            borderBottom: (currentPage === 'Marketplace') 
+                             ? '3px solid #AE16F0' 
+                             : 'none',
+            '&:hover': {
+              color: "#491061",
+            },
+          }}
          >
             Marketplace
          </Typography>
@@ -70,7 +81,13 @@ export default function AccountMenu({ currentPage }:Prop) {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            <Avatar sx={{ 
+              width: 32, 
+              height: 32 ,
+              background: "linear-gradient(to right, #3f107a, #760da5, #6b14a2, #7c17b4)"
+            }}>
+              M
+            </Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -141,3 +158,5 @@ export default function AccountMenu({ currentPage }:Prop) {
     </React.Fragment>
   );
 }
+
+//#491061

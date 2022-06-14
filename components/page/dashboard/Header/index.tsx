@@ -6,7 +6,7 @@ const Header = (props:any) => {
         <header>
         <div className="logo">
           <img
-            src="/assets/img/economia.png" 
+            src="/assets/img/logo.png" 
             alt="Initial image"
           />
         </div>

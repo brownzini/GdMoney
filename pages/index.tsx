@@ -22,7 +22,7 @@ const Home: NextPage = () => {
         setToken(session.token);
     //    console.clear();
         setTimeout(() => { 
-            (session.token === null) && Router.push('/landingpage');
+         //   (session.token === null) && Router.push('/landingpage');
         },2000);
     },[]);
 

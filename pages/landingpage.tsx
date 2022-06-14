@@ -50,7 +50,7 @@ const LandingPage:NextPage = () => {
       <header ref={ref}>
           <div className="logo">
             <img
-              src="/assets/img/economia.png" 
+              src="/assets/img/logo.png" 
               alt="Initial image"
             />
           </div>

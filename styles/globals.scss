@@ -33,35 +33,68 @@ body::-webkit-scrollbar-thumb {
 
 .main-dashboard {
     background: white;
-    height: auto;
+    height: 100%;
+    min-height: 100vh;
 
-    header {
-        display: flex;
-        width: 100%;
-        height: 1rem;
-        padding: 30px 50px;
-        position: fixed;
-        top: 0;
-        right: 0;
-        align-items: center;
-        justify-content: space-between;
-        transition: all 0.5s ease-in-out;
-        background: white;
-        box-shadow: -1px 1px 6px 0px grey;
+    .header {
+        position: absolute;
+        z-index: 1000;
+        header {
+            display: flex;
+            width: 100%;
+            height: 1rem;
+            padding: 30px 50px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.5s ease-in-out;
+            background: white;
+            box-shadow: -1px 1px 6px 0px grey;
 
-        a {
-            padding: 18px;
-            color: #f87cc0;
-            p {
-                font-weight: bold;
+            a {
+                padding: 18px;
+                color: #AE16F0;
+                p {
+                    font-weight: bold;
+                }
+            }
+
+            .logo {
+                padding-top:5px;
+                img {
+                    width: 100%;
+                }
             }
         }
+    }
+    
+    section.content {
+        padding: 5%;
+        .content-list-collectables {
+            h1 {
+                font-size: 3rem;
+                font-weight: bold;
+                color: #220741;
+                font-family: 'Roboto';
+                text-align: center;
+            }
+            div::-webkit-scrollbar {
+                width:1px;
+            }
 
-        .logo {
-            padding-top:5px;
-            img {
-                width: 5%;
-                max-width: auto;
+            .content-title {
+                h1 {
+                    padding: 5%;
+                }
+            }
+
+            .content-viewMore {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 5%;
             }
         }
     }
@@ -89,8 +122,7 @@ body::-webkit-scrollbar-thumb {
         .logo {
             text-decoration: none;
             img {
-                width: 10%;
-                height: 5%;
+                width: 100%;
             }
         }
         
@@ -426,6 +458,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 1500px) {
+    .main-dashboard {
+        header {
+          min-width: 25rem;
+        }
+    }
+
     main {
         .header-main {
           margin-left: 3.6rem;
@@ -497,6 +535,20 @@ body::-webkit-scrollbar-thumb {
     section {
         padding: 50px 8%;
     }
+
+    .main-dashboard {
+        background: white;
+        height: 100%;
+        min-height: 100vh;
+    
+        .header {
+          padding:0px;
+        }
+
+        section {
+            padding:0px;
+        }
+    }
     .content {
         .home {
             .home-img {
@@ -531,8 +583,16 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-
 @media (max-width: 768px) {
+    .main-dashboard {
+        .content {
+            .content-list-collectables { 
+                .content-title {
+                    padding: 10%;
+                }
+            }
+        }
+    }
     .content {
         header {
             padding: 10px 0px;
@@ -637,6 +697,38 @@ body::-webkit-scrollbar-thumb {
             display: flex;
             img {
                 width: 20rem;
+            }
+        }
+    }
+}
+
+@media (max-height: 732px) {
+    .main-dashboard {
+        header {
+          width: 100%;
+        }
+    }
+
+    .main-login {
+        .box-content {
+            width: auto;
+            height:auto;
+            min-height: 80vh;
+            .button {
+                button {
+                    width: 90%;
+                }
+            }
+        }
+    }
+
+    .main-signup {
+        .box-content {
+            width: auto;
+            height:auto;
+            min-height: 80vh;
+            button {  
+                width: 90%;
             }
         }
     }
@@ -771,32 +863,6 @@ body::-webkit-scrollbar-thumb {
             height:auto;
             min-width: 20vw;
             min-height:65vh;
-        }
-    }
-}
-
-@media (max-height: 732px) {
-    .main-login {
-        .box-content {
-            width: auto;
-            height:auto;
-            min-height: 80vh;
-            .button {
-                button {
-                    width: 90%;
-                }
-            }
-        }
-    }
-
-    .main-signup {
-        .box-content {
-            width: auto;
-            height:auto;
-            min-height: 80vh;
-            button {  
-                width: 90%;
-            }
         }
     }
 }
