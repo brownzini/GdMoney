@@ -11,7 +11,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
-export const LandingPage = () => {
+const LandingPage:NextPage = () => {
   const ref = useRef<HTMLDivElement>({} as HTMLDivElement);
 
   function navbarToggle() {
@@ -277,3 +277,5 @@ export const LandingPage = () => {
     </div>
   )
 }
+
+export default LandingPage;

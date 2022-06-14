@@ -1,4 +1,5 @@
 /* Next */
+import Router from 'next/router';
 import type { NextPage } from 'next'
 
 // Nookies
@@ -11,23 +12,22 @@ import { useSessions } from '../context/sessions';
 import session from '../global/session';
 
 //Components page
-import { LandingPage } from '../components/page/landingPage';
+import Dashboard from '../components/page/dashboard';
+import { SettingsRemoteOutlined } from '@mui/icons-material';
 
 const Home: NextPage = () => { 
     const { token, setToken } = useSessions();
 
     useEffect(() => {
         setToken(session.token);
+    //    console.clear();
+        setTimeout(() => { 
+            (session.token === null) && Router.push('/landingpage');
+        },2000);
     },[]);
 
-    return (
-        <>  
-         {token !== null ? (
-            <h1> LOGADO </h1>
-         ) : (
-            <LandingPage />
-         )}
-        </>
+    return (   
+        <Dashboard />
     )
 }
 
