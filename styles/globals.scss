@@ -97,6 +97,16 @@ body::-webkit-scrollbar-thumb {
                 padding: 5%;
             }
         }
+        .content-marketplace {
+            .content-title {
+                h1 {
+                    font-size: 3rem;
+                    font-weight: bold;
+                    color: #220741;
+                    text-align: center;
+                }
+            }
+        } 
     }
 }
 

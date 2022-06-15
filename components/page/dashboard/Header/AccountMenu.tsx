@@ -60,6 +60,8 @@ export default function AccountMenu({ currentPage }: Prop) {
           <Typography
             sx={{
               minWidth: 100,
+              padding: "18px",
+              outline: "none",
               borderBottom:
                 currentPage === "Marketplace" ? "3px solid #AE16F0" : "none",
               "&:hover": {
