@@ -6,7 +6,7 @@ import type { NextPage } from 'next'
 import { useEffect } from 'react';
 
 //Contexts
-import { useSessions } from '../context/sessions';
+import { useSessions } from '../hooks/context/sessions';
 
 //Globals
 import session from '../global/session';
