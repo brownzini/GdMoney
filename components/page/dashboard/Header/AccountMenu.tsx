@@ -19,12 +19,14 @@ import ListMenu from "./MenuOfContextAccount/ListMenu";
 import StorageIcon from "@mui/icons-material/Storage";
 import ManageSearchIcon from "@mui/icons-material/ManageSearch";
 import SettingsIcon from "@mui/icons-material/Settings";
+import logout from "../../../../services/logout";
 
 type Prop = {
   currentPage: string;
+  token?:string;
 };
 
-export default function AccountMenu({ currentPage }: Prop) {
+export default function AccountMenu({ currentPage, token }: Prop) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -178,11 +180,11 @@ export default function AccountMenu({ currentPage }: Prop) {
         <Divider />
 
         <Link 
-          href="/logout" 
           underline="none"
           sx={{
             color: 'gray'
           }}
+          onClick={() => (token !== undefined) && logout(token)}
         >
           <ListMenu fieldName="Logout">
             <Logout fontSize="small" />
@@ -192,5 +194,3 @@ export default function AccountMenu({ currentPage }: Prop) {
     </React.Fragment>
   );
 }
-
-//#491061

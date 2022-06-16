@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import Router from "next/router";
 
 /* React */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 /* Framework Material-UI */
 import Button from "@mui/material/Button";
@@ -16,6 +16,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Link from "@mui/material/Link";
 
+//Cookies
 import { setCookie } from "nookies";
 
 //Components
@@ -80,6 +81,16 @@ const Login: NextPage = () => {
           JSON.stringify([
             {
               token: response.data.token,
+            },
+          ]),
+          { maxAge: 86400 * 7, path: "/" }
+        );
+        setCookie(
+          null,
+          "RT",
+          JSON.stringify([
+            {
+              id_rt: response.data.id_rt,
             },
           ]),
           { maxAge: 86400 * 7, path: "/" }

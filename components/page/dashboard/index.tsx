@@ -1,15 +1,20 @@
 //Framework Material-UI
+import { Link } from '@mui/material';
 import Button from '@mui/material/Button';
 
 //Components
 import Header from "./Header";
-import WovenImageList from "./Header/ImageList";
+import WovenImageList from "./ImageList";
 
-export default function Dashboard() {
+type Props = {
+  token:string;
+}
+
+export default function Dashboard({ token }:Props) {
   return (
     <div className="main-dashboard">
       <section className="header">
-        <Header currentPage="Home" />
+        <Header currentPage="Home" token={token} />
       </section>
       <section className="content"> 
         <div className="content-list-collectables">
@@ -23,7 +28,11 @@ export default function Dashboard() {
           <WovenImageList />
 
           <div className="content-viewMore">
-            <Button
+            <Link
+              href="/marketplace"
+              underline="none"
+            >
+             <Button
               className="login-button"
               sx={{
                 background: "#6209D9",
@@ -40,10 +49,12 @@ export default function Dashboard() {
               variant="outlined"
             >
               View More...
-            </Button>
+             </Button>
+            </Link>
           </div>
         </div>
       </section>
     </div>
   );
 }
+

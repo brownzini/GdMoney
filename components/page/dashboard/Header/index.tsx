@@ -10,8 +10,9 @@ const Header = (props:any) => {
             alt="Initial image"
           />
         </div>
-        <AccountMenu 
-          currentPage={props.currentPage} 
+        <AccountMenu
+          currentPage={props.currentPage}
+          token={props.token}
         />
       </header> 
     );

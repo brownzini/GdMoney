@@ -1,34 +1,64 @@
+//React
+import * as React from "react";
+
 /* Next */
-import Router from 'next/router';
-import type { NextPage } from 'next'
+import type { NextPage } from "next";
+import { GetServerSidePropsContext } from "next";
 
 // Nookies
-import { useEffect } from 'react';
-
-//Contexts
-import { useSessions } from '../hooks/context/sessions';
-
-//Globals
-import session from '../global/session';
+import { parseCookies, setCookie } from "nookies";
 
 //Components page
-import Dashboard from '../components/page/dashboard';
-import { SettingsRemoteOutlined } from '@mui/icons-material';
+import Dashboard from "../components/page/dashboard";
 
-const Home: NextPage = () => { 
-    const { token, setToken } = useSessions();
+// Services API
+import refresh_token from '../services/refresh_token'
 
-    useEffect(() => {
-        setToken(session.token);
-    //    console.clear();
-        setTimeout(() => { 
-         //   (session.token === null) && Router.push('/landingpage');
-        },2000);
-    },[]);
+const Home: NextPage = (props) => {
+  const { token }: any = props;
+  React.useEffect(() => {
+    setCookie(
+      null,
+      "TOKEN",
+      JSON.stringify([
+        {
+          token: token,
+        },
+      ]),
+      { maxAge: 86400 * 7, path: "/" }
+    );
+  }, []);
 
-    return (   
-        <Dashboard />
-    )
-}
+  return <Dashboard token={token} />;
+};
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  try {
+    const session = parseCookies(context);
+    const token = await refresh_token(session);
+    if (token === 'Token is invalid or expired') {
+        return {
+          redirect: {
+            permanent: false,
+            destination: "/landingpage",
+          },
+        };       
+    }
+    return {
+      props: {
+        token,
+      },
+    };
+  } catch (e) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/landingpage",
+      },
+    };
+  }
+};
 
 export default Home;

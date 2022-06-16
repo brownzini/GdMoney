@@ -1,10 +1,10 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: linear-gradient( to right, #141019, #1e1725, #1d1724, #141019 );
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background: linear-gradient(to right, #141019, #1e1725, #1d1724, #141019);
 }
 
 * {
@@ -20,15 +20,19 @@ body {
 body::-webkit-scrollbar {
     width: 10px;
 }
- 
+
 body::-webkit-scrollbar-track {
-    background: linear-gradient( to right, #141019, #1e1725, #1d1724, #141019 );    /* color of the tracking area */
+    background: linear-gradient(to right, #141019, #1e1725, #1d1724, #141019);
+    /* color of the tracking area */
 }
-  
+
 body::-webkit-scrollbar-thumb {
-    background-color: #3c2f49;    /* color of the scroll thumb */
-    border-radius: 20px;       /* roundness of the scroll thumb */
-    border: 1px solid #1e1725; /* creates padding around scroll thumb */
+    background-color: #3c2f49;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 1px solid #1e1725;
+    /* creates padding around scroll thumb */
 }
 
 .main-dashboard {
@@ -39,6 +43,7 @@ body::-webkit-scrollbar-thumb {
     .header {
         position: absolute;
         z-index: 1000;
+
         header {
             display: flex;
             width: 100%;
@@ -56,22 +61,25 @@ body::-webkit-scrollbar-thumb {
             a {
                 padding: 18px;
                 color: #AE16F0;
+
                 p {
                     font-weight: bold;
                 }
             }
 
             .logo {
-                padding-top:5px;
+                padding-top: 5px;
+
                 img {
                     width: 100%;
                 }
             }
         }
     }
-    
+
     section.content {
         padding: 5%;
+
         .content-list-collectables {
             h1 {
                 font-size: 3rem;
@@ -80,8 +88,9 @@ body::-webkit-scrollbar-thumb {
                 font-family: 'Roboto';
                 text-align: center;
             }
+
             div::-webkit-scrollbar {
-                width:1px;
+                width: 1px;
             }
 
             .content-title {
@@ -97,6 +106,7 @@ body::-webkit-scrollbar-thumb {
                 padding: 5%;
             }
         }
+
         .content-marketplace {
             .content-title {
                 h1 {
@@ -106,7 +116,40 @@ body::-webkit-scrollbar-thumb {
                     text-align: center;
                 }
             }
-        } 
+
+            .content-filter {
+                border-bottom: 1px solid #e1dada;
+            }
+
+            .content-marketplace-list {
+                padding: 2%;
+                ul {
+                    width: 100%;
+                    display: inline-flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: center;
+
+                    li {
+                        padding-top: 1%;
+                        img.token-icon {
+                            width: 11%;
+                            margin: 2%;
+                        }
+                        .MuiCardActions-root {
+                            justify-content: space-between;
+                        }
+                    }
+
+                    li.not-found-product {
+                        justify-content: center;
+                        align-items: center;
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -131,15 +174,16 @@ body::-webkit-scrollbar-thumb {
 
         .logo {
             text-decoration: none;
+
             img {
                 width: 100%;
             }
         }
-        
+
         .navbar {
             display: flex;
         }
-        
+
         .navbar a {
             color: #FFF;
             font-size: 1.1rem;
@@ -147,13 +191,13 @@ body::-webkit-scrollbar-thumb {
             font-weight: 500;
             text-decoration: none;
         }
-        
+
         .navbar a:hover {
             color: #e4ab07;
             transition: .4s;
         }
     }
-    
+
     .home {
         width: 100%;
         min-height: 100vh;
@@ -173,7 +217,7 @@ body::-webkit-scrollbar-thumb {
             h2 {
                 font-size: 2.25rem;
                 margin: 1rem 0 2rem;
-                color:white;
+                color: white;
             }
         }
 
@@ -185,6 +229,7 @@ body::-webkit-scrollbar-thumb {
                 top: 8rem;
                 margin-left: 24rem;
                 right: 5rem;
+
                 img {
                     width: 100%;
                     height: auto;
@@ -205,6 +250,7 @@ body::-webkit-scrollbar-thumb {
         .button-groups {
             .login-button {
                 transition: all .5s ease-in-out;
+
                 &:hover {
                     font-weight: 800;
                     background: white;
@@ -221,6 +267,7 @@ body::-webkit-scrollbar-thumb {
         grid-gap: 3.5rem;
         align-items: center;
         background: white;
+
         .about-img {
             img {
                 max-width: 100%;
@@ -236,23 +283,29 @@ body::-webkit-scrollbar-thumb {
                 animation-play-state: running;
                 animation-name: animateImage;
             }
+
             @keyframes animateImage {
-                from {top: 10px;}
-                to {top: 40px;}
+                from {
+                    top: 10px;
+                }
+
+                to {
+                    top: 40px;
+                }
             }
         }
-        
+
         .about-text span {
             color: orange;
             font-weight: 600;
         }
-        
+
         .about-text h2 {
             font-size: 2.25rem;
             font-weight: 800;
             color: #5414a6;
         }
-        
+
         .about-text {
             p {
                 color: #6b6b6b;
@@ -272,7 +325,7 @@ body::-webkit-scrollbar-thumb {
         grid-template-columns: repeat(auto-fit, minmax(220px, auto));
         grid-gap: 3.5rem;
         align-items: center;
-        
+
         .heading {
             margin-left: -6rem;
         }
@@ -286,7 +339,7 @@ body::-webkit-scrollbar-thumb {
                 h2 {
                     color: orange;
                 }
-    
+
                 h3 {
                     font-family: 'Roboto', sans-serif;
                     text-align: justify;
@@ -302,6 +355,7 @@ body::-webkit-scrollbar-thumb {
         align-items: center;
         text-align: center;
         padding: 5%;
+
         h2 {
             font-size: 2rem;
             color: #3f4357;
@@ -314,6 +368,7 @@ body::-webkit-scrollbar-thumb {
         background: black;
         align-items: center;
         text-align: center;
+
         h3 {
             color: white;
         }
@@ -345,9 +400,10 @@ body::-webkit-scrollbar-thumb {
         background: #fff;
         z-index: 1000;
         box-shadow: 1px 1px 11px 0px;
+
         .heading {
             header {
-                width:auto;
+                width: auto;
                 background: #602f68;
                 height: 0.9rem;
             }
@@ -378,7 +434,7 @@ body::-webkit-scrollbar-thumb {
             .signup-field {
                 width: 15rem;
                 margin-top: 1rem;
-            }            
+            }
         }
     }
 
@@ -403,9 +459,10 @@ body::-webkit-scrollbar-thumb {
         background: #fff;
         z-index: 1000;
         box-shadow: 1px 1px 11px 0px;
+
         .heading {
             header {
-                width:auto;
+                width: auto;
                 background: #602f68;
                 height: 0.9rem;
             }
@@ -432,9 +489,10 @@ body::-webkit-scrollbar-thumb {
             .field-password {
                 margin-top: 2.5rem;
             }
+
             .field-repassword {
                 margin-top: 2.5rem;
-            }          
+            }
         }
     }
 
@@ -448,6 +506,7 @@ body::-webkit-scrollbar-thumb {
     .content {
         .home {
             min-height: 50vh;
+
             .button-groups {
                 margin-top: 0rem;
             }
@@ -470,18 +529,19 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 1500px) {
     .main-dashboard {
         header {
-          min-width: 25rem;
+            min-width: 25rem;
         }
     }
 
     main {
         .header-main {
-          margin-left: 3.6rem;
-          .box {
-              height: auto;
-              min-width: 300px;
-              min-height: 100px;
-          }
+            margin-left: 3.6rem;
+
+            .box {
+                height: auto;
+                min-width: 300px;
+                min-height: 100px;
+            }
         }
     }
 
@@ -502,7 +562,7 @@ body::-webkit-scrollbar-thumb {
             width: 22vw;
             height: 55vh;
 
-            button {  
+            button {
                 width: 90%;
             }
         }
@@ -550,20 +610,22 @@ body::-webkit-scrollbar-thumb {
         background: white;
         height: 100%;
         min-height: 100vh;
-    
+
         .header {
-          padding:0px;
+            padding: 0px;
         }
 
         section {
-            padding:0px;
+            padding: 0px;
         }
     }
+
     .content {
         .home {
             .home-img {
                 .base {
-                    margin-left:-10rem;
+                    margin-left: -10rem;
+
                     img {
                         position: relative;
                         width: 30rem;
@@ -572,20 +634,23 @@ body::-webkit-scrollbar-thumb {
                         top: 5rem;
                     }
                 }
+
                 .earth {
                     img {
                         width: 30rem;
                         height: auto;
-                    }                   
+                    }
                 }
             }
         }
     }
+
     .main-login {
         .box-content {
             width: 26vw;
         }
     }
+
     .main-signup {
         .box-content {
             width: 26vw;
@@ -596,24 +661,41 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 768px) {
     .main-dashboard {
         .content {
-            .content-list-collectables { 
+            .content-list-collectables {
                 .content-title {
                     padding: 10%;
                 }
             }
+
+            .content-marketplace {
+                .content-marketplace-list {
+                    padding: 2%;
+
+                    ul {
+                        gap: 10%;
+                        width: 100%;
+                        align-items: center;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+                }
+            }
         }
     }
+
     .content {
         header {
             padding: 10px 0px;
         }
-        
+
         .home {
             grid-template-columns: 1fr;
             text-align: left;
             height: 70vh;
+
             .home-text {
-                text-align:center;
+                text-align: center;
+
                 h1 {
                     font-size: 3.5rem;
                 }
@@ -622,21 +704,24 @@ body::-webkit-scrollbar-thumb {
                     font-size: 2rem;
                 }
             }
+
             .button-groups {
                 margin-top: 2rem;
                 text-align: center;
+
                 button {
                     width: 9rem;
                     height: 50px;
                 }
 
-                .signup-button{
+                .signup-button {
                     margin-left: 5px;
                     margin-top: -7rem;
                 }
             }
+
             .home-img {
-                display:none;
+                display: none;
             }
         }
 
@@ -655,6 +740,7 @@ body::-webkit-scrollbar-thumb {
                 h2 {
                     font-size: 1rem;
                 }
+
                 p {
                     font-size: 1rem;
                 }
@@ -674,37 +760,45 @@ body::-webkit-scrollbar-thumb {
                     left: 10.5rem;
                 }
             }
-          }
+        }
 
         section {
             padding: 100px 7%;
         }
     }
+
     .main-login {
         width: 105vw;
         height: 105vh;
         background: #e7f9ff;
+
         .box-content {
             width: 40vw;
             height: 45vh;
         }
+
         .group-images {
             display: flex;
+
             img {
                 width: 20rem;
             }
         }
     }
+
     .main-signup {
         width: 105vw;
         height: 105vh;
         background: #e7f9ff;
+
         .box-content {
             width: 40vw;
             height: 45vh;
         }
+
         .group-images {
             display: flex;
+
             img {
                 width: 20rem;
             }
@@ -715,15 +809,16 @@ body::-webkit-scrollbar-thumb {
 @media (max-height: 732px) {
     .main-dashboard {
         header {
-          width: 100%;
+            width: 100%;
         }
     }
 
     .main-login {
         .box-content {
             width: auto;
-            height:auto;
+            height: auto;
             min-height: 80vh;
+
             .button {
                 button {
                     width: 90%;
@@ -735,9 +830,10 @@ body::-webkit-scrollbar-thumb {
     .main-signup {
         .box-content {
             width: auto;
-            height:auto;
+            height: auto;
             min-height: 80vh;
-            button {  
+
+            button {
                 width: 90%;
             }
         }
@@ -749,6 +845,7 @@ body::-webkit-scrollbar-thumb {
         .home {
             .button-groups {
                 margin-left: -9rem;
+
                 .signup-button {
                     margin-left: 19rem;
                     margin-top: -10rem;
@@ -757,111 +854,128 @@ body::-webkit-scrollbar-thumb {
             }
         }
     }
+
     .main-login {
         width: 105vw;
         height: 105.1vh;
         background: #e7f9ff;
+
         .box-content {
             width: 80vw;
             min-height: 60vh;
             height: auto;
+
             .heading {
                 header {
-                  height: 10px;
+                    height: 10px;
                 }
-                
+
                 img {
-                  display: block;
-                  justify-content: center;
-                  align-items: center;
-                  width: 20vw;
+                    display: block;
+                    justify-content: center;
+                    align-items: center;
+                    width: 20vw;
                 }
             }
 
             .form {
                 .field-username {
                     .MuiFormControl-root.MuiTextField-root.css-1t9mek6-MuiFormControl-root-MuiTextField-root {
-                        input{
+                        input {
                             height: 5px;
                         }
                     }
                 }
+
                 .field-password {
                     margin-top: 1rem;
                 }
+
                 button {
                     width: 90%;
                     height: 50px;
                 }
+
                 .signup-field {
                     font-size: 1.5rem;
                 }
             }
         }
+
         .group-images {
             display: flex;
+
             img {
                 width: 10rem;
             }
         }
-    } 
+    }
+
     .main-signup {
         width: 105vw;
         height: 105.1vh;
         background: #e7f9ff;
+
         .box-content {
             width: 80vw;
             min-height: 60vh;
             height: auto;
+
             .heading {
                 header {
-                  height: 10px;
+                    height: 10px;
                 }
-                
+
                 img {
-                  display: block;
-                  justify-content: center;
-                  align-items: center;
-                  width: 20vw;
+                    display: block;
+                    justify-content: center;
+                    align-items: center;
+                    width: 20vw;
                 }
             }
 
             .form {
                 .field-username {
                     .MuiFormControl-root.MuiTextField-root.css-1t9mek6-MuiFormControl-root-MuiTextField-root {
-                        input{
+                        input {
                             height: 5px;
                         }
                     }
                 }
+
                 .field-password {
                     margin-top: 1rem
                 }
+
                 .field-repassword {
                     margin-top: 1rem
-                }                
+                }
+
                 button {
                     width: 90%;
                     height: 50px;
                 }
+
                 .signup-field {
                     font-size: 1.5rem;
                 }
             }
         }
+
         .group-images {
             display: flex;
+
             img {
                 width: 10rem;
             }
         }
-    } 
+    }
 }
 
 @media (max-width: 375px) {
     .main-signup {
         .box-content {
-            height:78vh;
+            height: 78vh;
         }
     }
 }
@@ -870,9 +984,9 @@ body::-webkit-scrollbar-thumb {
     .main-signup {
         .box-content {
             width: auto;
-            height:auto;
+            height: auto;
             min-width: 20vw;
-            min-height:65vh;
+            min-height: 65vh;
         }
     }
 }
