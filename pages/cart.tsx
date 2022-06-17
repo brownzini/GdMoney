@@ -1,7 +1,6 @@
 /* Next */
-import { Button } from "@mui/material";
+import { Button, Link } from "@mui/material";
 import type { NextPage } from "next";
-import { GetServerSidePropsContext } from "next";
 
 //Components
 import Header from "../components/Header";
@@ -14,6 +13,7 @@ const Cart: NextPage = (props) => {
         <Header currentPage="Cart" token={""} />
       </section>
       <div className="content-cart-title">
+        <div className="content-cart-group">
           <div className="content-cart-price">
             <h1>Total: 0.0355565 </h1>
             <img 
@@ -21,13 +21,30 @@ const Cart: NextPage = (props) => {
                 src="/assets/img/bnb-token.svg" 
             />
           </div>
-          <Button variant="contained" color="primary">
-            Finally Pay
-          </Button>
+        <Link
+            className="content-button-payment"
+            href="#"
+            underline="none"
+        >
+            <Button 
+            variant="contained" 
+            color="primary"
+            sx={{
+                width: "100%",
+            }}
+            >
+               Make a Payment
+            </Button>
+        </Link>
+        </div>
       </div>
       <section className="content">
-           <NewCard />
-           <NewCard />
+           <NewCard 
+              id="1"
+              product_name="Product 1"
+              img_url="https://mir-s3-cdn-cf.behance.net/project_modules/disp/52d159121302647.60c2db0fa736e.gif"
+              price={0.0355565}
+           />
       </section>
     </div>
   );

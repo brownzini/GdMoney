@@ -1,16 +1,43 @@
+// Material-UI
+import { IconButton } from "@mui/material";
 
-const NewCard = () => {
+//Icons
+import DeleteIcon from '@mui/icons-material/Delete';
+
+type Props = {
+  id: string;
+  product_name: string;
+  img_url: string;
+  price: number;
+}
+
+const NewCard = ({
+  id,
+  product_name,
+  img_url,
+  price,
+}:Props) => {
     return (
       <div className="content-cart-items">
         <div className="content-header">
-          <h3> Product Name </h3>
+          <h3> {product_name} </h3>
         </div>
         <div className="content-body">
-          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/52d159121302647.60c2db0fa736e.gif" />
+          <img src={img_url} />
 
           <div className="content-footer">
-            <p> Preço </p>
-            <p> Remover </p>
+            <div className="content-footer-price">
+              <p> {price} </p>
+              <img 
+                className="token-icon" 
+                src="/assets/img/bnb-token.svg" 
+              />
+            </div>
+            <IconButton
+              onClick={() => console.log(id)}
+            >
+              <DeleteIcon fontSize="small" />
+            </IconButton>
           </div>
         </div>
       </div>
