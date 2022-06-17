@@ -2,7 +2,7 @@
 import * as React from "react";
 
 // Components
-import Header from "../components/page/dashboard/Header";
+
 import CategoriesFilter from "../components/page/marketplace/CategoriesFilter";
 import Products from "../components/page/marketplace/Products";
 
@@ -17,7 +17,9 @@ import { parseCookies, setCookie } from "nookies";
 import refresh_token from "../services/refresh_token";
 import PaginationItems from "../components/page/marketplace/PaginationItems";
 import balanceBNBtoDolar from "../services/balanceBNBtoDolar";
-import logout from "../services/logout";
+
+//Components
+import Header from "../components/Header";
 
 type Products = {
   id: string;

@@ -44,7 +44,7 @@ export default function Products({
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
  
   const currentProducts = products.slice(startIndex, endIndex);
-
+  
   async function getProductsByCategory() {
     setIsLoading(true);
     try {
@@ -78,7 +78,7 @@ export default function Products({
         (product: Products, index) =>
           product.forSale &&
           !isLoading && (
-            <li key={index}>
+            <li key={index} onClick={() => console.log('')}>
               <Card
                 username={product.username}
                 data={product.data}

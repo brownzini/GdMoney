@@ -3,8 +3,8 @@ import { Link } from '@mui/material';
 import Button from '@mui/material/Button';
 
 //Components
-import Header from "./Header";
 import WovenImageList from "./ImageList";
+import Header from '../../Header';
 
 type Props = {
   token:string;

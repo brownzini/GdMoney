@@ -6,12 +6,10 @@ import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
-import Logout from "@mui/icons-material/Logout";
 import Link from "@mui/material/Link";
 import ListMenu from "./MenuOfContextAccount/ListMenu";
 
@@ -19,7 +17,12 @@ import ListMenu from "./MenuOfContextAccount/ListMenu";
 import StorageIcon from "@mui/icons-material/Storage";
 import ManageSearchIcon from "@mui/icons-material/ManageSearch";
 import SettingsIcon from "@mui/icons-material/Settings";
-import logout from "../../../../services/logout";
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import Logout from "@mui/icons-material/Logout";
+
+//Components
+import Symbol from "./Cart.tsx/Symbol";
+import logout from "../../services/logout";
 
 type Prop = {
   currentPage: string;
@@ -74,6 +77,11 @@ export default function AccountMenu({ currentPage, token }: Prop) {
             }}
           >
             Marketplace
+          </Typography>
+        </Link>
+        <Link href="/cart" underline="none">
+          <Typography>
+            <Symbol />
           </Typography>
         </Link>
         <Tooltip title="Account settings">
@@ -138,7 +146,19 @@ export default function AccountMenu({ currentPage, token }: Prop) {
         </MenuItem>
 
         <Divider />
-        
+
+        <Link 
+          href="/my-cart" 
+          underline="none"
+          sx={{
+            color: 'gray'
+          }}
+        >
+          <ListMenu fieldName="My Cart">
+            <ShoppingCartCheckoutIcon fontSize="small" />
+          </ListMenu>
+        </Link>
+
         <Link 
           href="/my-collectables" 
           underline="none"
@@ -146,7 +166,7 @@ export default function AccountMenu({ currentPage, token }: Prop) {
             color: 'gray'
           }}
         >
-          <ListMenu fieldName="Your Collectables">
+          <ListMenu fieldName="My Collectables">
             <StorageIcon fontSize="small" />
           </ListMenu>
         </Link>

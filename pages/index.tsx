@@ -13,10 +13,13 @@ import Dashboard from "../components/page/dashboard";
 
 // Services API
 import refresh_token from '../services/refresh_token'
+import { useSessions } from "../hooks/context/sessions";
 
 const Home: NextPage = (props) => {
   const { token }: any = props;
+  const { setToken } = useSessions();
   React.useEffect(() => {
+    setToken(token);
     setCookie(
       null,
       "TOKEN",

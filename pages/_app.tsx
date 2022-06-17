@@ -14,9 +14,9 @@ import theme from '../theme';
 import '../styles/globals.scss';
 
 //Providers
-import { SessionsProvider } from '../hooks/context/sessions';
 import { ThemeProvider } from '@mui/material/styles';
-
+import { SessionsProvider } from '../hooks/context/sessions';
+import { CartProvider } from '../hooks/context/useCart';
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
@@ -32,8 +32,10 @@ export default function MyApp(props: MyAppProps) {
       </Head>
       <ThemeProvider theme={theme}>
         <SessionsProvider>
+         <CartProvider>
           <CssBaseline />
           <Component {...pageProps} />
+         </CartProvider>
         </SessionsProvider>
       </ThemeProvider>
     </>
