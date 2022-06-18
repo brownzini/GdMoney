@@ -2,6 +2,7 @@
 import * as React from "react";
 
 /* Next */
+import Router from "next/router";
 import type { NextPage } from "next";
 import { GetServerSidePropsContext } from "next";
 
@@ -72,13 +73,13 @@ const Cart: NextPage = (props) => {
               underline="none"
           >
               <Button 
-              variant="contained" 
-              color="primary"
-              disabled={ (cartProducts.length === 0) ? true : false }
-              sx={{
-                  width: "100%",
-              }}
-              >
+                variant="contained" 
+                color="primary"
+                disabled={ (cartProducts.length === 0) ? true : false }
+                onClick={() => Router.push('/buy')}
+                sx={{
+                    width: "100%",
+                }}>
                 Make a Payment
               </Button>
           </Link>

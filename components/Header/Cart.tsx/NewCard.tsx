@@ -3,6 +3,8 @@ import { IconButton } from "@mui/material";
 
 //Icons
 import DeleteIcon from '@mui/icons-material/Delete';
+
+//Context
 import { useCart } from "../../../hooks/context/useCart";
 
 type Props = {

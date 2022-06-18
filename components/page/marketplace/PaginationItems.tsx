@@ -19,7 +19,13 @@ export default function PaginationControlled({
   };
   return (
     <Stack spacing={2}>
-     {productsLength > 0 && <Pagination count={totalPages} page={currentPage} onChange={handleChange} />}
+     {productsLength > 0 
+        && <Pagination
+              count={totalPages} 
+              page={currentPage} 
+              onChange={handleChange} 
+            />
+     }
     </Stack>
   );
 }
