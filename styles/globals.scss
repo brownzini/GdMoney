@@ -583,14 +583,15 @@ body::-webkit-scrollbar-thumb {
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        .content-cart-items {
-            width: 37.8%;
-            height: 100%;
-            background: white;
-            border: 1px solid gray;
-            border-radius: 1%;
-            margin: 0.3%;
 
+        .sub-content {
+        width: 37.8%;
+        height: 100%;
+        background: white;
+        border: 1px solid gray;
+        border-radius: 1%;
+        margin: 0.3%;
+          .content-cart-items {
             .content-header {
                 padding: 1%;
                 text-align: center;
@@ -619,6 +620,7 @@ body::-webkit-scrollbar-thumb {
                     }
                 }
             }
+          }
         }
     }
 }
@@ -935,6 +937,7 @@ body::-webkit-scrollbar-thumb {
             border-top: 1px solid black;
             border-bottom: 1px solid white;
             background: white;
+            z-index: 1000;
             .content-cart-group {
               .content-cart-price {
                 h1 {
@@ -944,7 +947,7 @@ body::-webkit-scrollbar-thumb {
                     padding: 5%;
                 }
                 img {
-                    width: 10%;
+                   display:none;
                 }
                 button {
                     height: 7vh;
@@ -962,22 +965,35 @@ body::-webkit-scrollbar-thumb {
             align-items: center;
             justify-content: center;
             height: 100%;
-            max-height: 88vh;
+            max-height: 85vh;
             overflow-y: scroll;
          
-            .content-cart-items:nth-child(1) {
+            .sub-content:nth-child(1) {
                 margin-top: 19%;
-                border: 2px solid gray;
+                border: 1px solid gray;
             }
             
-            .content-cart-items:nth-child(2) {
+            .sub-content:nth-child(2) {
                 margin-top: 19%;
-                border: 2px solid gray;
+                border: 1px solid gray;
             }          
 
-            .content-cart-items {
+            .sub-content {
                 margin-top: 5%;
-                border: 2px solid gray;
+                border: 1px solid gray;
+
+                .content-cart-items {
+                    .content-footer {
+                        .content-footer-price {
+                            p{
+                                padding-top:7%
+                            }
+                            img {
+                                display:none;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

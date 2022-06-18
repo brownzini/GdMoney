@@ -20,9 +20,14 @@ import balanceBNBtoDolar from "../services/balanceBNBtoDolar";
 
 //Components
 import Header from "../components/Header";
+import { useCart } from "../hooks/context/useCart";
+
+//Global
+import getCart from "../global/functions/getCart";
 
 type Products = {
   id: string;
+  product_name:string;
   img_url: string;
   price: number;
   user_id: string;
@@ -37,11 +42,13 @@ type Categories = {
 };
 
 const Marketplace: NextPage = (props) => {
-  const { token, balance }: any = props;
+  const { token, balance, cart }: any = props;
 
   const [categories, setCategories] = React.useState<Categories[]>([]);
   const [products, setProducts] = React.useState<Products[]>([]);
   
+  const { getCartCookie } = useCart();
+
   const itemsPerPage = 1;
   const [currentPage, setCurrentPage] = React.useState<number>(1);  
   const totalPages = Math.ceil((products.length-1) / itemsPerPage);
@@ -53,6 +60,13 @@ const Marketplace: NextPage = (props) => {
   );
 
   React.useEffect(() => {
+    if (cart !== undefined) {
+      if (cart.length > 0) {
+          getCartCookie(cart[0].cart);
+      } 
+    } else {
+      getCartCookie([]);
+    }
     setCookie(
       null,
       "TOKEN",
@@ -114,6 +128,7 @@ export const getServerSideProps = async (
     const session = parseCookies(context);
     const token = await refresh_token(session);
     const balance = await balanceBNBtoDolar(session);
+    const cart = getCart(session);
 
     if (token === 'Token is invalid or expired') {
       return {
@@ -127,7 +142,8 @@ export const getServerSideProps = async (
     return {
       props: {
         token,
-        balance
+        balance,
+        cart
       },
     };
   } catch (e) {

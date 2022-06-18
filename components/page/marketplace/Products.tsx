@@ -13,6 +13,7 @@ import errors from "../../../global/errors";
 
 type Products = {
   id: string;
+  product_name:string;
   img_url: string;
   price: number;
   user_id: string;
@@ -78,11 +79,14 @@ export default function Products({
         (product: Products, index) =>
           product.forSale &&
           !isLoading && (
-            <li key={index} onClick={() => console.log('')}>
+            <li key={index}>
               <Card
+                id={product.id}
+                product_name={product.product_name}
                 username={product.username}
                 data={product.data}
-                price={(String(product.price/balance)).substr(0, 7)}
+                price={String(product.price)}
+                convertedPrice={(String(product.price/balance)).substr(0, 7)}
                 img_url={product.img_url}
               />
             </li>

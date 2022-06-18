@@ -13,13 +13,21 @@ import Dashboard from "../components/page/dashboard";
 
 // Services API
 import refresh_token from '../services/refresh_token'
-import { useSessions } from "../hooks/context/sessions";
+
+//Context
+import { useCart } from "../hooks/context/useCart";
+
+//Global
+import getCart from "../global/functions/getCart";
 
 const Home: NextPage = (props) => {
-  const { token }: any = props;
-  const { setToken } = useSessions();
+  const { token, cart }: any = props;
+  const { getCartCookie } = useCart();
+
   React.useEffect(() => {
-    setToken(token);
+    if (cart.length > 0) {
+        getCartCookie(cart[0].cart);
+    }
     setCookie(
       null,
       "TOKEN",
@@ -41,6 +49,8 @@ export const getServerSideProps = async (
   try {
     const session = parseCookies(context);
     const token = await refresh_token(session);
+    const cart = getCart(session);
+
     if (token === 'Token is invalid or expired') {
         return {
           redirect: {
@@ -49,9 +59,11 @@ export const getServerSideProps = async (
           },
         };       
     }
+    
     return {
       props: {
         token,
+        cart
       },
     };
   } catch (e) {

@@ -146,19 +146,6 @@ export default function AccountMenu({ currentPage, token }: Prop) {
         </MenuItem>
 
         <Divider />
-
-        <Link 
-          href="/my-cart" 
-          underline="none"
-          sx={{
-            color: 'gray'
-          }}
-        >
-          <ListMenu fieldName="My Cart">
-            <ShoppingCartCheckoutIcon fontSize="small" />
-          </ListMenu>
-        </Link>
-
         <Link 
           href="/my-collectables" 
           underline="none"

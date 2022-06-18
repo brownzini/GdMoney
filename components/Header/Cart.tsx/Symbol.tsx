@@ -20,11 +20,10 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 }));
 
 export default function Symbol() {
-  const { cartTotal } = useCart();
-
+  const { cartProducts } = useCart();
   return (
     <IconButton aria-label="cart">
-      <StyledBadge badgeContent={cartTotal} color="secondary">
+      <StyledBadge badgeContent={cartProducts.length} color="secondary">
         <ShoppingCartIcon />
       </StyledBadge>
     </IconButton>

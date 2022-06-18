@@ -12,20 +12,28 @@ import IconButton from "@mui/material/IconButton";
 import { red } from "@mui/material/colors";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import LocalAtmIcon from "@mui/icons-material/LocalAtm";
+import { useCart } from "../../../hooks/context/useCart";
 
 type Props = {
+  id:string;
+  product_name:string;
   username: string;
   data: string;
   price: string;
+  convertedPrice:string;
   img_url:string;
 }
 
 export default function RecipeReviewCard({
+  id,
+  product_name,
   username = 'user',
   data,
   price,
+  convertedPrice,
   img_url,
 }:Props) {
+  const { addCart, deleteCart, getProductInCart } = useCart();
   return (
     <Card
       sx={{
@@ -48,7 +56,6 @@ export default function RecipeReviewCard({
         image={img_url}
         alt="Paella dish"
         sx={{ cursor:'pointer' }}
-        onClick={() => console.log('clicou no gif kkkkkk')}
       />
       <CardContent
         sx={{
@@ -59,7 +66,7 @@ export default function RecipeReviewCard({
           color:'#2f2f2f',
         }}
       >
-        <h1> { price } </h1>
+        <h1> { convertedPrice } </h1>
         <img 
           className="token-icon" 
           src="/assets/img/bnb-token.svg" 
@@ -71,10 +78,22 @@ export default function RecipeReviewCard({
           borderTop: "1px solid #949494",
         }}
       >
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites"
+          onClick={() => {
+            (getProductInCart(id) === false) 
+                ? addCart({
+                    id: id,
+                    product_name: product_name,
+                    img_url: img_url,
+                    price: Number(price),
+                  })
+                : deleteCart(id);
+          }}
+        >
           <AddShoppingCartIcon
             sx={{
               transition: "all 0.3s ease-in-out",
+              color: (getProductInCart(id)) ? "#b30794" : '#757575',
               "&:hover": {
                 color: "#b30794",
               },

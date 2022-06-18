@@ -3,12 +3,14 @@ import { IconButton } from "@mui/material";
 
 //Icons
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useCart } from "../../../hooks/context/useCart";
 
 type Props = {
   id: string;
   product_name: string;
   img_url: string;
   price: number;
+  balance:number;
 }
 
 const NewCard = ({
@@ -16,7 +18,9 @@ const NewCard = ({
   product_name,
   img_url,
   price,
+  balance,
 }:Props) => {
+    const { deleteCart } = useCart();
     return (
       <div className="content-cart-items">
         <div className="content-header">
@@ -27,14 +31,16 @@ const NewCard = ({
 
           <div className="content-footer">
             <div className="content-footer-price">
-              <p> {price} </p>
+              <p> {String(price/balance).substr(0, 7)}BNB </p>
               <img 
                 className="token-icon" 
                 src="/assets/img/bnb-token.svg" 
               />
             </div>
             <IconButton
-              onClick={() => console.log(id)}
+              onClick={() => {
+                deleteCart(id)
+              }}
             >
               <DeleteIcon fontSize="small" />
             </IconButton>
