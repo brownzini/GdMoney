@@ -66,7 +66,6 @@ const Cart: NextPage = (props) => {
                 src="/assets/img/bnb-token.svg" 
             />
           </div>
-        {cartProducts.length > 0 && 
           <Link
               className="content-button-payment"
               href="#"
@@ -75,6 +74,7 @@ const Cart: NextPage = (props) => {
               <Button 
               variant="contained" 
               color="primary"
+              disabled={ (cartProducts.length === 0) ? true : false }
               sx={{
                   width: "100%",
               }}
@@ -82,7 +82,6 @@ const Cart: NextPage = (props) => {
                 Make a Payment
               </Button>
           </Link>
-        }
         </div>
       </div>
       <section className="content">
@@ -123,7 +122,6 @@ export const getServerSideProps = async (
           },
         };       
     }
-    
     return {
       props: {
         token,

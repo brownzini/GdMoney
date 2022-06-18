@@ -596,6 +596,11 @@ body::-webkit-scrollbar-thumb {
                 padding: 1%;
                 text-align: center;
                 border-bottom: 1px solid gray;
+
+                h3 {
+                    color: #525151;
+                    font-family: monospace;
+                }
             }
 
             .content-body {
@@ -622,6 +627,60 @@ body::-webkit-scrollbar-thumb {
             }
           }
         }
+    }
+}
+
+.main-buy {
+    background: white;
+    height: 100%;
+    min-height: 100vh;
+
+    .header {
+        position: absolute;
+        z-index: 1000;
+
+        header {
+            display: flex;
+            width: 100%;
+            height: 1rem;
+            padding: 30px 50px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.5s ease-in-out;
+            background: white;
+            box-shadow: -1px 1px 6px 0px grey;
+
+            a {
+                padding: 18px;
+                color: #AE16F0;
+
+                p {
+                    font-weight: bold;
+                }
+            }
+
+            .logo {
+                padding-top: 5px;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    section.content {
+        padding: 1%;
+        display: flex;
+        gap: 1%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        max-height: 100%;
+        height: 100vh;
     }
 }
 

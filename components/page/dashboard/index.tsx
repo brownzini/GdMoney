@@ -39,7 +39,7 @@ export default function Dashboard({ token }:Props) {
                 border: "1px solid #6209D9",
                 color: "white",
                 height: "auto%",
-                width: "25%",
+                width: "100%",
                 minHeight:"10vh",
                 textAlign: "center",
                 '&:hover': {
