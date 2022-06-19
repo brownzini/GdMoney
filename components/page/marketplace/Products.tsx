@@ -88,6 +88,7 @@ export default function Products({
                 price={String(product.price)}
                 convertedPrice={(String(product.price/balance)).substr(0, 7)}
                 img_url={product.img_url}
+                user_id={product.user_id}
               />
             </li>
           )

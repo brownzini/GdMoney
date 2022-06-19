@@ -8,7 +8,13 @@ import { useCart } from "../../../hooks/context/useCart";
 //Services
 import verifyWallet from "../../../services/verifyWallet";
 import requestPayment from "../../../services/payment/requestPayment";
+import confirmPayment from "../../../services/payment/confirmPayment";
 
+//Next
+import Router from "next/router";
+
+//Cookies
+import { setCookie } from "nookies";
 interface Props {
     token: string;
     balance: number;
@@ -23,10 +29,6 @@ interface Props {
         status: boolean;
         message: string;
     }>>;
-    response:{
-        status: boolean;
-        message: string;
-    }
 }
 
 const Payment = ({
@@ -40,18 +42,59 @@ const Payment = ({
     error,
     setError,
     setResponse,
-    response,
 }:Props) => {
-  const { getTotalValue } = useCart();
+  const { cartProducts, getTotalValue, setCartProducts } = useCart();
+
+  function setCookies () {
+    setCookie(
+      null,
+      "STATUS",
+      JSON.stringify([
+        {
+          status: [{
+            from: from,
+            price: Number(getTotalValue('normal', balance)),
+            to: to,
+          }],
+        },
+      ]),
+      { maxAge: 86400 * 7, path: "/" }
+    );
+  }
 
   function errors (message:string) {
     switch (message) {
-      case 'No transaction found': execute();
-      case 'Pending transaction': execute();
-      default: setResponse({
-        status: false,
-        message: message,
-      });
+      case 'Pending transaction':  setCookies();
+      default: {
+        setResponse({
+            status: false,
+            message: message,
+        });
+        setMessage(message);
+        setError(true);
+      }
+    }
+  }
+
+  async function confirmation () {
+    const message = await confirmPayment(token, cartProducts);
+
+    if (message === 'Success in operation') {
+        setCartProducts([]);
+        setCookie(
+            null,
+            "CART",
+            JSON.stringify([
+              { cart: [] },
+            ]),
+            { maxAge: 86400 * 7, path: "/" }
+        );
+        Router.push("/");
+    } else {
+        setResponse({
+            status: true,
+            message: message,
+        });
     }
   }
 
@@ -60,27 +103,28 @@ const Payment = ({
       if(verify) {
         setResponse({
           status: true,
-          message: 'normal',
+          message: 'loading',
         });
         const price = Number(getTotalValue('converted', balance));
-        const responseTransation = await requestPayment(token, from, 0, to);
-
-        if (responseTransation === 'OK') {
-            setResponse({ status: true, message: message });
-        } else {
-            errors(responseTransation);
-        }
+        setTimeout(async () => {
+            const responseTransation = await requestPayment(token, from, 0, '0xe9e7cea3dedca5984780bafc599bd69add087d56');
+            if (responseTransation === 'OK') {
+                confirmation();
+            } else {
+                errors(responseTransation);
+            }
+        },1000);
     } else {
-          setMessage('Invalid Wallet Address.')
-          setError(true);
-      }
+        setMessage('Invalid Wallet Address.')
+        setError(true);
+    }
   }
 
   return (
     <div className="content-payment">
       <div className="content-head"></div>
       <div className="content-subHead">
-        <h1>Confirm Payment</h1>
+        <h1>Send to: {to}</h1>
       </div>
       <div className="content-body">
         <TextField
@@ -88,7 +132,7 @@ const Payment = ({
           sx={{ width: "100%" }}
           onChange={(e) => setFrom(e.target.value)}
           id="outlined-error-helper-text"
-          label="Wallet_Address"
+          label="Your Wallet Address"
           error={error}
           helperText={error && message}
         />

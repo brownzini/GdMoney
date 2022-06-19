@@ -22,6 +22,7 @@ type Props = {
   price: string;
   convertedPrice:string;
   img_url:string;
+  user_id?:string;
 }
 
 export default function RecipeReviewCard({
@@ -32,6 +33,7 @@ export default function RecipeReviewCard({
   price,
   convertedPrice,
   img_url,
+  user_id,
 }:Props) {
   const { addCart, deleteCart, getProductInCart } = useCart();
   return (
@@ -86,6 +88,7 @@ export default function RecipeReviewCard({
                     product_name: product_name,
                     img_url: img_url,
                     price: Number(price),
+                    user_id: user_id,
                   })
                 : deleteCart(id);
           }}

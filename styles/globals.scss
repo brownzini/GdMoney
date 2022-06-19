@@ -733,6 +733,10 @@ body::-webkit-scrollbar-thumb {
                 justify-content: center;
                 border-bottom: 1px solid rgb(229, 232, 235);
                 padding: 2%;
+
+                font-size: 1rem;
+                max-width: 100%;
+                word-break: break-word;
             }
             .content-body {
                 display: flex;
@@ -746,7 +750,6 @@ body::-webkit-scrollbar-thumb {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                border-top: 1px solid rgb(229, 232, 235);
             }
 
         }
@@ -1126,13 +1129,13 @@ body::-webkit-scrollbar-thumb {
     }
 
     .main-buy {
-        min-height: 105vh;
+        min-height: 115vh;
         section.content { 
             flex-direction: column;
             .content-details {
                 width:100%;
-                height: 50%;
-                max-height: 50%;
+                height: 55%;
+                max-height: 55%;
                 .content-details-title {
                     svg {
                         width: 2.5rem;
@@ -1159,6 +1162,12 @@ body::-webkit-scrollbar-thumb {
             .content-payment {
                 width:100%;
                 height:25%;
+
+                .content-subHead {
+                    font-size: 1rem;
+                    max-width: 100%;
+                    word-break: break-word;
+                }
             }
         }
     }

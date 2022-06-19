@@ -4,7 +4,6 @@ import * as React from "react";
 //Components
 import Header from "../components/Header";
 import Payment from "../components/page/buy/Payment";
-import LoadingPayment from "../components/page/buy/LoadingPayment";
 
 //Next
 import { GetServerSidePropsContext } from "next";
@@ -23,19 +22,25 @@ import getCart from "../global/functions/getCart";
 import { useCart } from "../hooks/context/useCart";
 import Details from "../components/page/buy/Details";
 
+// Loading Animation
+import CircularProgress from "@mui/material/CircularProgress";
+
+//Next
+import Router from "next/router";
+
 const Buy = (props: any) => {
   const { token, cart, balance }: any = props;
   const { cartProducts, getCartCookie } = useCart();
 
   const [ from, setFrom] = React.useState<string>("");
-  const [ to, setTo] = React.useState<string>('0x10ed43c718714eb63d5aa57b78b54704e256024e');
+  const [ to, setTo] = React.useState<string>('0x10ed43c71k8714eb63d5aa57b78b54704e256024e');
 
   const [ error, setError ] = React.useState<boolean>(false);
   const [ message, setMessage] = React.useState<string>('Needs to be 40 characters long or more.');
 
   const [response, setResponse] = React.useState({
     status: false,
-    message: 'normal',
+    message: 'default',
   });
 
   React.useEffect(() => {
@@ -63,16 +68,26 @@ const Buy = (props: any) => {
     }
   },[from]);
 
+  React.useEffect(() => { 
+    if(cartProducts.length === 0) {
+        Router.push("/");
+    }
+  },[cartProducts]); 
+
   return (
     <div className="main-buy">
       <section className="header">
         <Header currentPage="Buy" token={token} />
       </section>
       <section className="content">
+      {response.message !== 'loading' && 
         <Details 
           cartProducts={cartProducts}
           balance={balance}
         />
+      }
+
+      {response.message !== 'loading' &&
         <Payment
             token={token}
             balance={balance}
@@ -84,8 +99,17 @@ const Buy = (props: any) => {
             error={error}
             setError={setError}
             setResponse={setResponse}
-            response={response}
         />
+      }
+
+      {response.message === 'loading' &&
+        <> <CircularProgress color="inherit" /> </>
+      }
+
+      {response.message === 'success' &&
+        <> <h1> {response.message} </h1> </>
+      }
+
       </section>
     </div>
   );

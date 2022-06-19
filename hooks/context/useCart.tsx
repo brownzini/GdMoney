@@ -9,9 +9,10 @@ interface Props {
 
 type Product = {
     id: string;
-    product_name: string;
-    img_url: string;
-    price: number;
+    product_name:string;
+    img_url:string;
+    price:number;
+    user_id?:string;
 }
 interface CartContextValue {
     cartProducts: Product[];

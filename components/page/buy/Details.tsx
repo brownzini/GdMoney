@@ -11,7 +11,6 @@ type Product = {
     price: number;
 };
   
-
 interface Props {
     cartProducts: Product[];
     balance: number;
@@ -24,7 +23,7 @@ const Details = ({
     return (
         <div className="content-details">
         <div className="content-details-title">
-          <AppsIcon fontSize="large" /> <h1>Purchase Details</h1>
+          <AppsIcon fontSize="large" /> <h1>Confirm Payment</h1>
         </div>
         <div className="content-details-body">
           <div>
