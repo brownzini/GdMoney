@@ -9,6 +9,7 @@ import { useCart } from "../../../hooks/context/useCart";
 import verifyWallet from "../../../services/verifyWallet";
 import requestPayment from "../../../services/payment/requestPayment";
 import confirmPayment from "../../../services/payment/confirmPayment";
+import getWalletUser from "../../../services/getWalletUser";
 
 //Next
 import Router from "next/router";
@@ -106,14 +107,15 @@ const Payment = ({
           message: 'loading',
         });
         const price = Number(getTotalValue('converted', balance));
+        (cartProducts.length > 1) ? to : getWalletUser(token, cartProducts[0].id);
         setTimeout(async () => {
-            const responseTransation = await requestPayment(token, from, 0, '0xe9e7cea3dedca5984780bafc599bd69add087d56');
+            const responseTransation = await requestPayment(token, from, price, to);
             if (responseTransation === 'OK') {
                 confirmation();
             } else {
                 errors(responseTransation);
             }
-        },1000);
+        },10000);
     } else {
         setMessage('Invalid Wallet Address.')
         setError(true);

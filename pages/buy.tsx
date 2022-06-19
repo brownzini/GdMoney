@@ -33,7 +33,7 @@ const Buy = (props: any) => {
   const { cartProducts, getCartCookie } = useCart();
 
   const [ from, setFrom] = React.useState<string>("");
-  const [ to, setTo] = React.useState<string>('0x10ed43c71k8714eb63d5aa57b78b54704e256024e');
+  const [ to, setTo] = React.useState<string>('0x3035b1055ea9a5993764D096b309574003AB0fEe');
 
   const [ error, setError ] = React.useState<boolean>(false);
   const [ message, setMessage] = React.useState<string>('Needs to be 40 characters long or more.');
