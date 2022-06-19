@@ -719,8 +719,36 @@ body::-webkit-scrollbar-thumb {
 
         .content-payment {
             width: 50%;
-            background: blue;
-            height: 50%;
+            height: 42%;
+            border: 1px solid rgb(229, 232, 235);
+            border-radius:1%;
+            .content-head {
+                background: linear-gradient(to right, #2b0d4f, #210c3b, #351d4f, #3a2452);
+                border-radius: 10%;
+                height: 1.2%;
+            }
+            .content-subHead {
+                font-family: roboto;
+                display: flex;
+                justify-content: center;
+                border-bottom: 1px solid rgb(229, 232, 235);
+                padding: 2%;
+            }
+            .content-body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 3%;
+                gap: 2%;
+            }
+
+            .button-confirm-payment {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-top: 1px solid rgb(229, 232, 235);
+            }
+
         }
     }
 }
@@ -1098,6 +1126,7 @@ body::-webkit-scrollbar-thumb {
     }
 
     .main-buy {
+        min-height: 105vh;
         section.content { 
             flex-direction: column;
             .content-details {

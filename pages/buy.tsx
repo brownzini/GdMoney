@@ -1,9 +1,10 @@
 //React
 import * as React from "react";
 
-//Compnents
+//Components
 import Header from "../components/Header";
-import SimpleAccordion from "../components/page/buy/SimpleAccordion";
+import Payment from "../components/page/buy/Payment";
+import LoadingPayment from "../components/page/buy/LoadingPayment";
 
 //Next
 import { GetServerSidePropsContext } from "next";
@@ -20,20 +21,22 @@ import getCart from "../global/functions/getCart";
 
 //Context
 import { useCart } from "../hooks/context/useCart";
-
-//Icons
-import AppsIcon from "@mui/icons-material/Apps";
-
-type Product = {
-  id: string;
-  product_name: string;
-  img_url: string;
-  price: number;
-};
+import Details from "../components/page/buy/Details";
 
 const Buy = (props: any) => {
   const { token, cart, balance }: any = props;
-  const { cartProducts, getCartCookie, getTotalValue } = useCart();
+  const { cartProducts, getCartCookie } = useCart();
+
+  const [ from, setFrom] = React.useState<string>("");
+  const [ to, setTo] = React.useState<string>('0x10ed43c718714eb63d5aa57b78b54704e256024e');
+
+  const [ error, setError ] = React.useState<boolean>(false);
+  const [ message, setMessage] = React.useState<string>('Needs to be 40 characters long or more.');
+
+  const [response, setResponse] = React.useState({
+    status: false,
+    message: 'normal',
+  });
 
   React.useEffect(() => {
     if (cart.length > 0) {
@@ -49,7 +52,16 @@ const Buy = (props: any) => {
       ]),
       { maxAge: 86400 * 7, path: "/" }
     );
+    setError(false);
   }, []);
+
+  React.useEffect(() => { 
+    if (from.length < 40) {
+        setError(true);
+    } else {
+        setError(false);
+    }
+  },[from]);
 
   return (
     <div className="main-buy">
@@ -57,27 +69,23 @@ const Buy = (props: any) => {
         <Header currentPage="Buy" token={token} />
       </section>
       <section className="content">
-        <div className="content-details">
-          <div className="content-details-title">
-            <AppsIcon fontSize="large" /> <h1>Purchase Details</h1>
-          </div>
-          <div className="content-details-body">
-            <div>
-              {cartProducts.map((product: Product, index) => (
-                <div className="sub-content" key={index}>
-                  <SimpleAccordion
-                    id={product.id}
-                    product_name={product.product_name}
-                    priceConverted={String(product.price/balance).substr(0, 7)}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="content-payment">
-          <h1>confirm</h1>
-        </div>
+        <Details 
+          cartProducts={cartProducts}
+          balance={balance}
+        />
+        <Payment
+            token={token}
+            balance={balance}
+            message={message}
+            setMessage={setMessage}
+            from={from}
+            to={to}
+            setFrom={setFrom}
+            error={error}
+            setError={setError}
+            setResponse={setResponse}
+            response={response}
+        />
       </section>
     </div>
   );
