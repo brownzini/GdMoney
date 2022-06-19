@@ -23,7 +23,7 @@ const Details = ({
     return (
         <div className="content-details">
         <div className="content-details-title">
-          <AppsIcon fontSize="large" /> <h1>Confirm Payment</h1>
+          <AppsIcon fontSize="large" /> <h1>Product History</h1>
         </div>
         <div className="content-details-body">
           <div>

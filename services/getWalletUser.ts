@@ -1,7 +1,7 @@
 // Services API
 import api from "./api";
 
-const getWalletUser = async (token:string, id:string):Promise<string> => {
+const getWalletUser = async (token:string, id:string | undefined):Promise<string> => {
   let wallet_address = '';
   if (token !== undefined) {
     await api.get(`/users/profile/${id}`, {

@@ -1,6 +1,9 @@
 //React
 import * as React from "react";
 
+//Material-UI
+import Button from "@mui/material/Button";
+
 //Components
 import Header from "../components/Header";
 import Payment from "../components/page/buy/Payment";
@@ -80,14 +83,14 @@ const Buy = (props: any) => {
         <Header currentPage="Buy" token={token} />
       </section>
       <section className="content">
-      {response.message !== 'loading' && 
+      {(response.message === 'default' || response.message !== 'Success in operation') && 
         <Details 
           cartProducts={cartProducts}
           balance={balance}
         />
       }
 
-      {response.message !== 'loading' &&
+      {(response.message === 'default' || response.message !== 'Success in operation') &&
         <Payment
             token={token}
             balance={balance}
@@ -99,6 +102,7 @@ const Buy = (props: any) => {
             error={error}
             setError={setError}
             setResponse={setResponse}
+            setTo={setTo}
         />
       }
 
@@ -106,8 +110,32 @@ const Buy = (props: any) => {
         <> <CircularProgress color="inherit" /> </>
       }
 
-      {response.message === 'success' &&
-        <> <h1> {response.message} </h1> </>
+      {response.message === 'Success in operation' &&
+        <> 
+          <img src="/assets/img/success.png" />
+          <h1> Our congratulations on your purchase </h1>
+
+          <Button
+          type="submit"
+          sx={{
+            width: "15.2rem",
+            height: "55px",
+            background: "rgb(59, 75, 149)",
+            color: "white",
+            border: "1px solid #4c0f5c",
+            transition: "all .5s ease-in-out",
+            mt: "0.8rem",
+            "&:hover": {
+              color: "white",
+              background: "#6272bc",
+            },
+          }}
+          onClick={() => Router.push('/collectables')}
+          variant="outlined"
+        >
+          my collectables
+        </Button>
+        </>
       }
 
       </section>

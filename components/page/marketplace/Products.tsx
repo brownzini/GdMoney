@@ -71,13 +71,13 @@ export default function Products({
   React.useEffect(() => {
     setProducts([]);
     getProductsByCategory();
+    console.log(products)
   }, [id_category]);
 
   return (
     <ul>
       {currentProducts.map(
         (product: Products, index) =>
-          product.forSale &&
           !isLoading && (
             <li key={index}>
               <Card

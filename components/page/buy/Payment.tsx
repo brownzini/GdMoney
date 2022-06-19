@@ -23,6 +23,7 @@ interface Props {
     setMessage: React.Dispatch<React.SetStateAction<string>>;
     from: string;
     to: string;
+    setTo: React.Dispatch<React.SetStateAction<string>>;
     setFrom: React.Dispatch<React.SetStateAction<string>>;
     error:boolean;
     setError: React.Dispatch<React.SetStateAction<boolean>>;
@@ -39,6 +40,7 @@ const Payment = ({
     setMessage,
     from,
     to,
+    setTo,
     setFrom,
     error,
     setError,
@@ -106,8 +108,10 @@ const Payment = ({
           status: true,
           message: 'loading',
         });
+
         const price = Number(getTotalValue('converted', balance));
-        (cartProducts.length > 1) ? to : getWalletUser(token, cartProducts[0].id);
+        (cartProducts.length === 1) && setTo(await getWalletUser(token, cartProducts[0].user_id));
+        
         setTimeout(async () => {
             const responseTransation = await requestPayment(token, from, price, to);
             if (responseTransation === 'OK') {
