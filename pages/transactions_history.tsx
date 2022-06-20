@@ -60,12 +60,14 @@ const TransactionsHistory: NextPage = (props) => {
               <p> Data </p>
             </div>
             <div className="content-body-items">
-              {transactions.map((transaction: any) =>
-                <Table 
-                  product_name={transaction.product_name}
-                  status={transaction.status}
-                  date={transaction.data}
-                />
+              {transactions.map((transaction: any, index: React.Key | null | undefined) =>
+                <div key={index}> 
+                  <Table 
+                    product_name={transaction.product_name}
+                    status={transaction.status}
+                    date={transaction.data}
+                  />
+                </div>
               )}
             </div>
           </div>
