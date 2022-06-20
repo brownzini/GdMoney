@@ -23,6 +23,7 @@ type Props = {
   convertedPrice:string;
   img_url:string;
   user_id?:string;
+  forSale?:boolean;
 }
 
 export default function RecipeReviewCard({
@@ -89,6 +90,7 @@ export default function RecipeReviewCard({
                     img_url: img_url,
                     price: Number(price),
                     user_id: user_id,
+                    forSale: true,
                   })
                 : deleteCart(id);
           }}
