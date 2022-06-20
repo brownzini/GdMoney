@@ -13,6 +13,7 @@ const Header = (props:any) => {
         <AccountMenu
           currentPage={props.currentPage}
           token={props.token}
+          username={props.username}
         />
       </header> 
     );

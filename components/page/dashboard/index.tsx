@@ -8,20 +8,25 @@ import Header from '../../Header';
 
 type Props = {
   token:string;
+  username?:string;
 }
 
-export default function Dashboard({ token }:Props) {
+export default function Dashboard({ token, username }:Props) {
   return (
     <div className="main-dashboard">
       <section className="header">
-        <Header currentPage="Home" token={token} />
+        <Header 
+          currentPage="Home" 
+          token={token} 
+          username={username}
+        />
       </section>
       <section className="content"> 
         <div className="content-list-collectables">
           
           <div className="content-title">
             <h1> 
-             👋 Welcome Username 
+             👋 Welcome {username} 
             </h1>
           </div>
 

@@ -17,7 +17,6 @@ import ListMenu from "./MenuOfContextAccount/ListMenu";
 import StorageIcon from "@mui/icons-material/Storage";
 import ManageSearchIcon from "@mui/icons-material/ManageSearch";
 import SettingsIcon from "@mui/icons-material/Settings";
-import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import Logout from "@mui/icons-material/Logout";
 
 //Components
@@ -27,9 +26,10 @@ import logout from "../../services/logout";
 type Prop = {
   currentPage: string;
   token?:string;
+  username:string;
 };
 
-export default function AccountMenu({ currentPage, token }: Prop) {
+export default function AccountMenu({ currentPage, token, username }: Prop) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -101,7 +101,7 @@ export default function AccountMenu({ currentPage, token }: Prop) {
                   "linear-gradient(to right, #3f107a, #760da5, #6b14a2, #7c17b4)",
               }}
             >
-              M
+              {username.substr(0, 1)}
             </Avatar>
           </IconButton>
         </Tooltip>
@@ -142,7 +142,7 @@ export default function AccountMenu({ currentPage, token }: Prop) {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem>
-          <Avatar /> Username
+          <Avatar /> {username}
         </MenuItem>
 
         <Divider />
