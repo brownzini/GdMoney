@@ -14,7 +14,7 @@ import BasicChips from './BasicChips';
 
 //Services
 import stopSell from '../../../services/products/stopSell';
-import getUserID from '../../../services/users/getUserID';
+import getProductByUser from '../../../services/users/getProductByUser';
 
 interface ProductsCollectables {
   id:string;
@@ -34,7 +34,7 @@ interface Props {
   forSale:boolean;
   token:string;
   setProducts: React.Dispatch<React.SetStateAction<ProductsCollectables[]>>;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function MediaCard({
@@ -56,7 +56,7 @@ export default function MediaCard({
       !forSale
     );
     if (response === 'Updated category') {
-        const productsALL = await getUserID(token);
+        const productsALL = await getProductByUser(token);
         if(productsALL.length > 0) {
            setProducts(productsALL);
            setOpen(false);

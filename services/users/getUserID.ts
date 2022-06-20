@@ -1,18 +1,8 @@
 // Services API
 import api from "../api";
-import getProduct from "../products/getProduct";
 
-interface ProductsCollectables {
-    id:string;
-    product_name:string;
-    category_name:string;
-    img_url:string;
-    forSale:boolean;
-    price:number;
-}
-
-const getUserID = async (token:string):Promise<ProductsCollectables[]> => {
-  let products:any = '';
+const getUserID = async (token:string):Promise<string> => {
+  let id = '';
   if (token !== undefined) {
     await api.post(`/users/getid`, {}, {
         headers: {
@@ -22,13 +12,12 @@ const getUserID = async (token:string):Promise<ProductsCollectables[]> => {
         },
     })
     .then(async function (response) {
-        const  resp = await getProduct(token, response.data.user_id);
-        products = resp;
+        id = response.data.user_id;
     }).catch(error => {
-       console.log(error.data.message);
+        id = ''
     })
   }
-  return products;
+  return id;
 }
 
 export default getUserID;

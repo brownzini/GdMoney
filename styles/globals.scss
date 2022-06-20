@@ -839,6 +839,13 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
 }
 
+.error-modal {
+    h2 {
+        font-family: sans-serif;
+        color: #3f3c3c;
+    }
+}
+
 /* Responsive */
 @media (max-width: 1600px) {
     .content {

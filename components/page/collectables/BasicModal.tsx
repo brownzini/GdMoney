@@ -10,7 +10,7 @@ import SendIcon from '@mui/icons-material/Send';
 
 //Services
 import updateProduct from '../../../services/products/updateProduct';
-import getUserID from '../../../services/users/getUserID';
+import getProductByUser from '../../../services/users/getProductByUser';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -124,7 +124,7 @@ export default function BasicModal({
           !products[indexProduct].forSale
         );
         if (response === 'Updated category') {
-            const productsALL = await getUserID(token);
+            const productsALL = await getProductByUser(token);
             if(productsALL.length > 0) {
                setProducts(productsALL);
                setOpen(false);

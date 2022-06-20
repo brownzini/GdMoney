@@ -9,7 +9,7 @@ import { useCart } from "../../../hooks/context/useCart";
 import verifyWallet from "../../../services/verifyWallet";
 import requestPayment from "../../../services/payment/requestPayment";
 import confirmPayment from "../../../services/payment/confirmPayment";
-import getWalletUser from "../../../services/getWalletUser";
+import getWalletUser from "../../../services/users/getWalletUser";
 
 //Next
 import Router from "next/router";

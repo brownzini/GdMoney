@@ -13,7 +13,9 @@ import Header from "../components/Header";
 
 // Services API
 import refresh_token from '../services/refresh_token'
+import getProductByUser from "../services/users/getProductByUser";
 import getUserID from "../services/users/getUserID";
+import getWalletUser from "../services/users/getWalletUser";
 
 //Context
 import { useCart } from "../hooks/context/useCart";
@@ -24,6 +26,7 @@ import getCart from "../global/functions/getCart";
 //Components
 import MediaCard from "../components/page/collectables/MediaCard";
 import BasicModal from "../components/page/collectables/BasicModal";
+import ErrorModal from "../components/page/collectables/ErrorModal";
 interface ProductsCollectables {
     id:string;
     product_name:string;
@@ -37,7 +40,7 @@ interface State {
 }
 
 const Collectables: NextPage = (props) => {
-  const { token, cart, productsALL }: any = props;
+  const { token, cart, productsALL, wallet_address }: any = props;
   const { getCartCookie } = useCart();
 
   const [open, setOpen] = React.useState(false);
@@ -77,18 +80,25 @@ const Collectables: NextPage = (props) => {
 
   return (
     <div className="main-collectables">
-      <BasicModal 
-        token={token}
-        open={open}
-        setOpen={setOpen}
-        indexProduct={indexProduct}
-        products={products}
-        setResponseAmount={setResponseAmount}
-        responseAmount={responseAmount}
-        values={values}
-        setValues={setValues}
-        setProducts={setProducts}
-      />
+      {(wallet_address !== '') ? (
+         <BasicModal 
+          token={token}
+          open={open}
+          setOpen={setOpen}
+          indexProduct={indexProduct}
+          products={products}
+          setResponseAmount={setResponseAmount}
+          responseAmount={responseAmount}
+          values={values}
+          setValues={setValues}
+          setProducts={setProducts}
+         />
+        ) : (
+          <ErrorModal 
+            open={open} 
+            setOpen={setOpen} 
+          />
+        )}
       <section className="header">
         <Header currentPage="Cart" token={token} />
       </section>
@@ -127,8 +137,10 @@ export const getServerSideProps = async (
     const session = parseCookies(context);
     const token = await refresh_token(session);
     const cart = getCart(session);
-    const productsALL = await getUserID(token);
-  
+    const productsALL = await getProductByUser(token);
+    const user_id = await getUserID(token);
+    const wallet_address = await getWalletUser(token, user_id);
+
     if (token === 'Token is invalid or expired') {
         return {
           redirect: {
@@ -141,7 +153,8 @@ export const getServerSideProps = async (
       props: {
         token,
         cart,
-        productsALL
+        productsALL,
+        wallet_address
       },
     };
   } catch (e) {
