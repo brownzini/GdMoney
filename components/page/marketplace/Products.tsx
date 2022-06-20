@@ -71,7 +71,6 @@ export default function Products({
   React.useEffect(() => {
     setProducts([]);
     getProductsByCategory();
-    console.log(products)
   }, [id_category]);
 
   return (

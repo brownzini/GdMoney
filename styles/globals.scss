@@ -897,7 +897,7 @@ body::-webkit-scrollbar-thumb {
                     font-weight: bold;
                     color: white;
                     border-bottom: 1px solid #c1c1c1;
-                    padding: 2%;
+                    padding: 0.5%;
                     text-align: center;
                     background-image: -webkit-linear-gradient(346deg, #3c3b3b 0%, #535153 100%);
                     p {
@@ -911,7 +911,6 @@ body::-webkit-scrollbar-thumb {
                         display: flex;
                         align-items: center;
                         border-bottom: 1px solid #c1c1c1;
-                        padding: 2%;
                         text-align: center;
                         max-width: 100%;
                             .table-item-product-name {
@@ -931,12 +930,6 @@ body::-webkit-scrollbar-thumb {
                 .content-body-items::-webkit-scrollbar {
                     width: 0px;
                 }
-            }
-            .content-transaction {
-                width: 100%;
-                height: 60vh;
-                max-height: 60vh;
-                background: blue;
             }
         }
     }
@@ -1394,16 +1387,24 @@ body::-webkit-scrollbar-thumb {
     }
 
     .main-transation-history {
-        .content-th-title {
-            margin-top:20%;
-
-            h1 {
-                text-align: center;
+        section.content {
+            .content-th-title {
+                margin-top:20%;
+    
+                h1 {
+                    text-align: center;
+                }
+            } 
+            .content-body { 
+              display:flex;
+              flex-direction: column;
+    
+              .content-history {
+                  .table-head {
+                    padding: 2%;
+                  }
+              }
             }
-        } 
-        .content-body { 
-          display:flex;
-          flex-direction: column;
         }
     }
 }

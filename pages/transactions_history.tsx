@@ -10,6 +10,8 @@ import { parseCookies, setCookie } from "nookies";
 
 // Services API
 import refresh_token from '../services/refresh_token'
+import getUserID from "../services/users/getUserID";
+import getTransactions from "../services/getTransactions";
 
 //Context
 import { useCart } from "../hooks/context/useCart";
@@ -22,7 +24,7 @@ import Header from "../components/Header";
 import Table from "../components/page/transactions_history/Table";
 
 const TransactionsHistory: NextPage = (props) => {
-  const { token, cart }: any = props;
+  const { token, cart, transactions }: any = props;
   const { getCartCookie } = useCart();
 
   React.useEffect(() => {
@@ -58,11 +60,14 @@ const TransactionsHistory: NextPage = (props) => {
               <p> Data </p>
             </div>
             <div className="content-body-items">
-              <Table />
+              {transactions.map((transaction: any) =>
+                <Table 
+                  product_name={transaction.product_name}
+                  status={transaction.status}
+                  date={transaction.data}
+                />
+              )}
             </div>
-          </div>
-          <div className="content-transaction"> 
-            <h1> xxxxx </h1>
           </div>
         </div>
       </section>
@@ -77,6 +82,8 @@ export const getServerSideProps = async (
     const session = parseCookies(context);
     const token = await refresh_token(session);
     const cart = getCart(session);
+    const user_id = await getUserID(token);
+    const transactions = await getTransactions(token,user_id);
 
     if (token === 'Token is invalid or expired') {
         return {
@@ -90,7 +97,8 @@ export const getServerSideProps = async (
     return {
       props: {
         token,
-        cart
+        cart,
+        transactions
       },
     };
   } catch (e) {
