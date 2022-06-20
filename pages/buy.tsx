@@ -14,10 +14,6 @@ import { GetServerSidePropsContext } from "next";
 //Cookies
 import { parseCookies, setCookie } from "nookies";
 
-//Services
-import refresh_token from "../services/refresh_token";
-import balanceBNBtoDolar from "../services/balanceBNBtoDolar";
-
 //Global
 import getCart from "../global/functions/getCart";
 
@@ -31,8 +27,14 @@ import CircularProgress from "@mui/material/CircularProgress";
 //Next
 import Router from "next/router";
 
+//Services
+import refresh_token from "../services/refresh_token";
+import balanceBNBtoDolar from "../services/balanceBNBtoDolar";
+import getUserID from "../services/users/getUserID";
+import getUserName from "../services/users/getUserName";
+
 const Buy = (props: any) => {
-  const { token, cart, balance }: any = props;
+  const { token, cart, balance, username }: any = props;
   const { cartProducts, getCartCookie } = useCart();
 
   const [ from, setFrom] = React.useState<string>("");
@@ -80,7 +82,11 @@ const Buy = (props: any) => {
   return (
     <div className="main-buy">
       <section className="header">
-        <Header currentPage="Buy" token={token} />
+        <Header 
+          currentPage="Buy" 
+          token={token} 
+          username={username}
+        />
       </section>
       <section className="content">
       {(response.message === 'default' || response.message !== 'Success in operation') && 
@@ -151,6 +157,8 @@ export const getServerSideProps = async (
     const token = await refresh_token(session);
     const cart = getCart(session);
     const balance = await balanceBNBtoDolar(session);
+    const user_id = await getUserID(token);
+    const username = await getUserName(token, user_id);
 
     if (token === "Token is invalid or expired") {
       return {
@@ -166,6 +174,7 @@ export const getServerSideProps = async (
         token,
         cart,
         balance,
+        username,
       },
     };
   } catch (e) {
