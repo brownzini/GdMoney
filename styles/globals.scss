@@ -59,7 +59,6 @@ body::-webkit-scrollbar-thumb {
             box-shadow: -1px 1px 6px 0px grey;
 
             a {
-                padding: 18px;
                 color: #AE16F0;
 
                 p {
@@ -137,7 +136,7 @@ body::-webkit-scrollbar-thumb {
                             margin: 2%;
                         }
                         .MuiCardActions-root {
-                            justify-content: space-between;
+                            justify-content: center;
                         }
                     }
 
@@ -525,7 +524,6 @@ body::-webkit-scrollbar-thumb {
             box-shadow: -1px 1px 6px 0px grey;
 
             a {
-                padding: 18px;
                 color: #AE16F0;
 
                 p {
@@ -654,7 +652,6 @@ body::-webkit-scrollbar-thumb {
             box-shadow: -1px 1px 6px 0px grey;
 
             a {
-                padding: 18px;
                 color: #AE16F0;
 
                 p {
@@ -780,7 +777,6 @@ body::-webkit-scrollbar-thumb {
             box-shadow: -1px 1px 6px 0px grey;
 
             a {
-                padding: 18px;
                 color: #AE16F0;
 
                 p {
@@ -857,7 +853,6 @@ body::-webkit-scrollbar-thumb {
             box-shadow: -1px 1px 6px 0px grey;
 
             a {
-                padding: 18px;
                 color: #AE16F0;
 
                 p {
@@ -1107,6 +1102,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 768px) {
+   .header header {
+        text-align: center;
+   }
+
     .main-dashboard {
         .content {
             .content-list-collectables {

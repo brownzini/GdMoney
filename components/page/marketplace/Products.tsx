@@ -11,6 +11,9 @@ import api from "../../../services/api";
 import CircularProgress from "@mui/material/CircularProgress";
 import errors from "../../../global/errors";
 
+//NoSSR
+import NoSsr from '@mui/material/NoSsr';
+
 type Products = {
   id: string;
   product_name:string;
@@ -20,6 +23,7 @@ type Products = {
   data: string;
   forSale: boolean;
   username: string;
+  status:boolean;
 };
 
 type Props = {
@@ -56,6 +60,7 @@ export default function Products({
           },
         })
         .then((res) => {
+          setIsLoading(true);
           res.data.products.unshift(res.data.products[0]);
           setTimeout(() => {
             setProducts(res.data.products);
@@ -75,9 +80,10 @@ export default function Products({
 
   return (
     <ul>
+      <NoSsr defer={false}>
       {currentProducts.map(
         (product: Products, index) =>
-          !isLoading && (
+          (!isLoading && product.status) && (
             <li key={index}>
               <Card
                 id={product.id}
@@ -88,10 +94,12 @@ export default function Products({
                 convertedPrice={(String(product.price/balance)).substr(0, 7)}
                 img_url={product.img_url}
                 user_id={product.user_id}
+                status={product.status}
               />
             </li>
           )
       )}
+      </NoSsr>
       <li>{isLoading && <CircularProgress color="inherit" />}</li>
       {products.length-1 === 0 && !isLoading && (
         <li className="not-found-product">

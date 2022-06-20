@@ -8,10 +8,13 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
 import { red } from "@mui/material/colors";
+
+//Icons
+import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import LocalAtmIcon from "@mui/icons-material/LocalAtm";
+
+//Context
 import { useCart } from "../../../hooks/context/useCart";
 
 type Props = {
@@ -24,6 +27,7 @@ type Props = {
   img_url:string;
   user_id?:string;
   forSale?:boolean;
+  status:boolean;
 }
 
 export default function RecipeReviewCard({
@@ -35,6 +39,7 @@ export default function RecipeReviewCard({
   convertedPrice,
   img_url,
   user_id,
+  status,
 }:Props) {
   const { addCart, deleteCart, getProductInCart } = useCart();
   return (
@@ -81,7 +86,9 @@ export default function RecipeReviewCard({
           borderTop: "1px solid #949494",
         }}
       >
-        <IconButton aria-label="add to favorites"
+        {(user_id !== 'JMXwIGusdEyXTNEE51dV') ? (
+        <IconButton 
+          aria-label="add to favorites"
           onClick={() => {
             (getProductInCart(id) === false) 
                 ? addCart({
@@ -105,17 +112,9 @@ export default function RecipeReviewCard({
             }}
           />
         </IconButton>
-
-        <IconButton aria-label="add to favorites">
-          <LocalAtmIcon
-            sx={{
-              transition: "all 0.3s ease-in-out",
-              "&:hover": {
-                color: "red",
-              },
-            }}
-          />
-        </IconButton>
+        ) : (
+          <> <h2> For sale</h2> </>
+        )}
       </CardActions>
     </Card>
   );

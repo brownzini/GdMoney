@@ -24,6 +24,7 @@ import { useCart } from "../hooks/context/useCart";
 
 //Global
 import getCart from "../global/functions/getCart";
+import getSpecificProduct from "../services/products/getSpecificProduct";
 
 type Products = {
   id: string;
@@ -34,6 +35,7 @@ type Products = {
   data: string;
   forSale: boolean;
   username: string;
+  status:boolean;
 };
 
 type Categories = {
