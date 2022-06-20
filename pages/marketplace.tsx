@@ -17,6 +17,8 @@ import { parseCookies, setCookie } from "nookies";
 import refresh_token from "../services/refresh_token";
 import PaginationItems from "../components/page/marketplace/PaginationItems";
 import balanceBNBtoDolar from "../services/balanceBNBtoDolar";
+import getUserID from "../services/users/getUserID";
+import getUserName from "../services/users/getUserName";
 
 //Components
 import Header from "../components/Header";
@@ -24,7 +26,6 @@ import { useCart } from "../hooks/context/useCart";
 
 //Global
 import getCart from "../global/functions/getCart";
-import getSpecificProduct from "../services/products/getSpecificProduct";
 
 type Products = {
   id: string;
@@ -44,7 +45,7 @@ type Categories = {
 };
 
 const Marketplace: NextPage = (props) => {
-  const { token, balance, cart }: any = props;
+  const { token, balance, cart, username }: any = props;
 
   const [categories, setCategories] = React.useState<Categories[]>([]);
   const [products, setProducts] = React.useState<Products[]>([]);
@@ -84,7 +85,11 @@ const Marketplace: NextPage = (props) => {
   return (
     <div className="main-dashboard">
       <section className="header">
-        <Header currentPage="Marketplace" token={token} />
+        <Header 
+          currentPage="Marketplace" 
+          token={token} 
+          username={username}
+        />
       </section>
       <section className="content">
         <div className="content-marketplace">
@@ -131,6 +136,8 @@ export const getServerSideProps = async (
     const token = await refresh_token(session);
     const balance = await balanceBNBtoDolar(session);
     const cart = getCart(session);
+    const user_id = await getUserID(token);
+    const username = await getUserName(token, user_id);
 
     if (token === 'Token is invalid or expired') {
       return {
@@ -145,7 +152,8 @@ export const getServerSideProps = async (
       props: {
         token,
         balance,
-        cart
+        cart,
+        username
       },
     };
   } catch (e) {
