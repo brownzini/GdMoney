@@ -16,15 +16,17 @@ import { Button, Link } from "@mui/material";
 //Cookies
 import { parseCookies, setCookie } from "nookies";
 
-//Services
-import refresh_token from "../services/refresh_token";
-import balanceBNBtoDolar from "../services/balanceBNBtoDolar";
-
 //Global
 import getCart from "../global/functions/getCart";
 
 //Context
 import { useCart } from "../hooks/context/useCart";
+
+//Services
+import refresh_token from "../services/refresh_token";
+import balanceBNBtoDolar from "../services/balanceBNBtoDolar";
+import getUserID from "../services/users/getUserID";
+import getUserName from "../services/users/getUserName";
 
 type Product = {
   id: string;
@@ -34,7 +36,7 @@ type Product = {
 }
 
 const Cart: NextPage = (props) => {
-  const { token, cart, balance }: any = props;
+  const { token, cart, balance, username }: any = props;
   const { cartProducts, getCartCookie, getTotalValue } = useCart();
 
   React.useEffect(() => {
@@ -56,7 +58,11 @@ const Cart: NextPage = (props) => {
   return (
     <div className="main-cart">
       <section className="header">
-        <Header currentPage="Cart" token={token} />
+        <Header 
+          currentPage="Cart" 
+          token={token} 
+          username={username}
+        />
       </section>
       <div className="content-cart-title">
         <div className="content-cart-group">
@@ -114,6 +120,8 @@ export const getServerSideProps = async (
     const token = await refresh_token(session);
     const cart = getCart(session);
     const balance = await balanceBNBtoDolar(session);
+    const user_id = await getUserID(token);
+    const username = await getUserName(token, user_id);
 
     if (token === 'Token is invalid or expired') {
         return {
@@ -127,7 +135,8 @@ export const getServerSideProps = async (
       props: {
         token,
         cart,
-        balance
+        balance,
+        username
       },
     };
   } catch (e) {

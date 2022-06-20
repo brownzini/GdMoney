@@ -46,7 +46,7 @@ const TransactionsHistory: NextPage = (props) => {
   return (
     <div className="main-transation-history">
       <section className="header">
-        <Header currentPage="Cart" token={token} />
+        <Header currentPage="Transaction_Hitory" token={token} />
       </section>
       <section className="content">
         <div className="content-th-title">
