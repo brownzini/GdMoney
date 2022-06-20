@@ -13,6 +13,7 @@ type Product = {
     img_url:string;
     price:number;
     user_id?:string;
+    forSale:boolean;
 }
 interface CartContextValue {
     cartProducts: Product[];
@@ -32,6 +33,7 @@ const listInitial: CartContextValue = {
         product_name: "",
         img_url: "",
         price: 0,
+        forSale:false,
     }],
     cartTotal: 0,
     setCartTotal:  data => {},

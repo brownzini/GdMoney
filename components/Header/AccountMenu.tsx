@@ -147,7 +147,7 @@ export default function AccountMenu({ currentPage, token }: Prop) {
 
         <Divider />
         <Link 
-          href="/my-collectables" 
+          href="/collectables" 
           underline="none"
           sx={{
             color: 'gray'

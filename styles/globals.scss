@@ -800,8 +800,43 @@ body::-webkit-scrollbar-thumb {
 
     section.content {
         padding: 5%;
+        .content-collectable-title {
+            font-family: roboto;
+            font-size: 1.5rem;
+            padding: 2%;
+            border-bottom: 1px solid #d5d5d5;
+        }
+        .content-body {
+            overflow-y: scroll;
+            height: 50vh;
+            margin-top: 2%;
+            max-height: 50vh;
+
+            ul {
+                align-items: center;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1%;
+                justify-content: center;
+
+                li {
+                    padding: 0.4%;
+                }
+            }
+        }
+
+        .content-body::-webkit-scrollbar {
+            width: 0px;
+        }
+        
     }
 
+}
+
+.progress-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Responsive */
@@ -1218,6 +1253,27 @@ body::-webkit-scrollbar-thumb {
                 }
             }
         }
+    }
+
+    .main-collectables {  
+        section.content {
+            .content-collectable-title {
+                margin-top:20%;
+
+                h1 {
+                    text-align: center;
+                }
+            }
+            .content-body {
+                min-height: 80vh;
+                ul {
+                    li {
+                        padding: 1%;
+                    }
+                }
+            }
+        }
+    
     }
 }
 

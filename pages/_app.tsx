@@ -15,7 +15,7 @@ import '../styles/globals.scss';
 
 //Providers
 import { ThemeProvider } from '@mui/material/styles';
-import { SessionsProvider } from '../hooks/context/sessions';
+import { ProductsProvider } from '../hooks/context/useProducts';
 import { CartProvider } from '../hooks/context/useCart';
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
@@ -31,12 +31,12 @@ export default function MyApp(props: MyAppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider theme={theme}>
-        <SessionsProvider>
+        <ProductsProvider>
          <CartProvider>
           <CssBaseline />
           <Component {...pageProps} />
          </CartProvider>
-        </SessionsProvider>
+        </ProductsProvider>
       </ThemeProvider>
     </>
   );
