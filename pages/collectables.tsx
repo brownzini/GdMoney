@@ -100,7 +100,7 @@ const Collectables: NextPage = (props) => {
           />
         )}
       <section className="header">
-        <Header currentPage="Cart" token={token} />
+        <Header currentPage="Collectables" token={token} />
       </section>
       <section className="content">
         <div className="content-collectable-title">
