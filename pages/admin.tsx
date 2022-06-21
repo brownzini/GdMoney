@@ -26,7 +26,7 @@ import Header from "../components/Header";
 interface Products {
     id:string;
     product_name:string;
-    category_name:string;
+    category_id:string;
     img_url:string;
     forSale:boolean;
     price:number;
@@ -76,7 +76,8 @@ const Admin: NextPage = (props) => {
               <div className="content-head-product-imgurl"> Img_url </div>
               <div className="content-head-product-forsale"> ForSale </div> 
               <div className="content-head-product-price"> Price </div> 
-              <div className="content-head-product-userid"> user_id </div> 
+              <div className="content-head-product-userid"> User_id </div> 
+              <div className="content-head-product-categoryid"> Category_id </div>
               <div className="content-head-product-status"> Status </div> 
               <div className="content-head-product-data"> Data </div> 
             </div>
@@ -88,6 +89,7 @@ const Admin: NextPage = (props) => {
                     <div className="content-body-product-forsale"> {(product.forSale) ? 'true' : 'false'} </div> 
                     <div className="content-body-product-price"> {product.price} </div> 
                     <div className="content-body-product-userid"> {product.user_id} </div> 
+                    <div className="content-body-product-categoryid"> kkkkkk </div> 
                     <div className="content-body-product-status"> {(product.status) ? 'true' : 'false'} </div> 
                     <div className="content-body-product-data"> {product.data} </div>   
                 </div>
@@ -111,7 +113,8 @@ export const getServerSideProps = async (
     const username = await getUserName(token, user_id);
     const admin = await isAdminUser(token, user_id);
     const products = await getAllProducts(token);
- 
+    
+
     if (token === 'Token is invalid or expired') {
         return {
           redirect: {

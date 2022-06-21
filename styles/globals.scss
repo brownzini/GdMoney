@@ -1091,6 +1091,9 @@ body::-webkit-scrollbar-thumb {
                     .content-head-product-userid {
                         width: 100%;
                     }
+                    .content-head-product-categoryid {
+                        width: 100%;
+                    }
                     .content-head-product-status {
                         width: 100%;
                     }
@@ -1105,7 +1108,7 @@ body::-webkit-scrollbar-thumb {
                     padding: 0.5%;
                     flex-direction: column;
 
-                    .block {
+                    .content-block {
                         display: flex;
                         width: 100%;
                     }
@@ -1128,6 +1131,9 @@ body::-webkit-scrollbar-thumb {
                     .content-body-product-status {
                         width: 100%;
                     }
+                    .content-body-product-categoryid {
+                        width: 100%;
+                    }                    
                     .content-body-product-data {
                         width: 100%;
                     }
