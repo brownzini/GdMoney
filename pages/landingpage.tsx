@@ -132,11 +132,11 @@ const LandingPage: NextPage = () => {
 
         <div className="about-text">
           <span>About Us</span>
-          <h2>We work with the best products</h2>
+          <h2>We work with the best digital products</h2>
           <p>
             Fictitious company that has been in the business since 2022,
             starting with marketplace and soon we will be with our physical
-            store.
+            store. Simulation of purchases outside the blockchain.
           </p>
 
           <div className="block">

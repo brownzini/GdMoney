@@ -1,5 +1,4 @@
 // Services API
-import { StringOptions } from "sass";
 import api from "../api";
 
 const requestPayment = async (
@@ -12,7 +11,7 @@ const requestPayment = async (
   if (token !== undefined) {
     await api.post(`/persistence/request`, {
       from: from,
-      price: price,
+      price: (price-(price*0.1)),
       wallet_address: to,
     }, {
       headers: {
