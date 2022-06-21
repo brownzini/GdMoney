@@ -230,7 +230,7 @@ const LandingPage: NextPage = () => {
             />
           </Link>
           <Link
-            href="https://www.linkedin.com/in/gabriel-david-de-souza-a8a8b818b/"
+            href="https://www.linkedin.com/in/gabrieldavidsilva/"
             sx={{ padding: "10px" }}
             target="_blank"
           >
@@ -244,7 +244,7 @@ const LandingPage: NextPage = () => {
             />
           </Link>
           <Link
-            href="https://wa.me/5511998888888"
+            href="https://wa.me/5548984791459"
             sx={{ padding: "10px" }}
             target="_blank"
           >
