@@ -22,7 +22,7 @@ import { useCart } from "../hooks/context/useCart";
 //Material-UI
 import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
-
+import CircularProgress from "@mui/material/CircularProgress";
 //Global
 import getCart from "../global/functions/getCart";
 import Header from "../components/Header";
@@ -63,8 +63,10 @@ const Settings: NextPage = (props) => {
   const { token, cart, user_id, username, wallet_address }: any = props;
   const { getCartCookie } = useCart();
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState<boolean>(false);
   const [error, setError] = React.useState<boolean>(false);
+
+  const [status, setStatus] = React.useState<boolean>(false);
 
   const formik = useFormik({
     initialValues: {
@@ -96,6 +98,7 @@ const Settings: NextPage = (props) => {
   }, []);
 
   async function submit (values:Props) {
+    setStatus(true);
     const response = await changePassword(user_id, token, values.password, values.newpassword);
     if (response !== 'Success') {
         formik.errors.password = 'Wrong password';
@@ -103,6 +106,7 @@ const Settings: NextPage = (props) => {
     } else {
         await changeData(user_id, token, values.username, values.wallet_address);
         setOpen(true);
+        setStatus(false);
         setTimeout(() => {
           setOpen(false);
         },3000);
@@ -173,20 +177,24 @@ const Settings: NextPage = (props) => {
                 />
                 </div>
                 <div className="content-button">
-                <Button
-                  type="submit"
-                  sx={{
-                    background: 'black',
-                    color: 'white',
-                    width: '100%',
-                    "&:hover": {
-                      color: "blue",
-                      border: "1px solid blue",
-                    },
-                  }}
-                >
+                {!status ? (
+                  <Button
+                    type="submit"
+                    sx={{
+                      background: 'black',
+                      color: 'white',
+                      width: '100%',
+                      "&:hover": {
+                        color: "blue",
+                        border: "1px solid blue",
+                      },
+                    }}>
                       Save
-                </Button>
+                  </Button>
+                ) : (
+                  <div className="loading"> <CircularProgress color="inherit" /> </div>
+                )}
+
                 </div>
             </form>    
         </div>

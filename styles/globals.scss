@@ -1012,6 +1012,11 @@ body::-webkit-scrollbar-thumb {
             }
             .content-button {
                 padding: 3%;  
+                .loading {
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                }
             }
         }
 
