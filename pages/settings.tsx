@@ -52,7 +52,6 @@ const validationSchema = yup.object().shape({
       .oneOf([yup.ref("password"), null], "Passwords must match")
       .required(),
 });
-
 interface Props {
     username:string;
     wallet_address:string;
