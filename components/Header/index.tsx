@@ -14,6 +14,7 @@ const Header = (props:any) => {
           currentPage={props.currentPage}
           token={props.token}
           username={props.username}
+          isAdmin={props.isAdmin}
         />
       </header> 
     );

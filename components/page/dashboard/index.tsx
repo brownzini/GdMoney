@@ -9,9 +9,14 @@ import Header from '../../Header';
 type Props = {
   token:string;
   username?:string;
+  isAdmin?:boolean;
 }
 
-export default function Dashboard({ token, username }:Props) {
+export default function Dashboard({ 
+  token, 
+  username,
+  isAdmin = false,
+}:Props) {
   return (
     <div className="main-dashboard">
       <section className="header">
@@ -19,6 +24,7 @@ export default function Dashboard({ token, username }:Props) {
           currentPage="Home" 
           token={token} 
           username={username}
+          isAdmin={isAdmin}
         />
       </section>
       <section className="content"> 

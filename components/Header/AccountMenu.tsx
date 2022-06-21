@@ -18,6 +18,7 @@ import StorageIcon from "@mui/icons-material/Storage";
 import ManageSearchIcon from "@mui/icons-material/ManageSearch";
 import SettingsIcon from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 //Components
 import Symbol from "./Cart.tsx/Symbol";
@@ -27,9 +28,15 @@ type Prop = {
   currentPage: string;
   token?:string;
   username:string;
+  isAdmin:boolean;
 };
 
-export default function AccountMenu({ currentPage, token, username }: Prop) {
+export default function AccountMenu({ 
+  currentPage, 
+  token, 
+  username,
+  isAdmin = false,
+}: Prop) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -146,13 +153,26 @@ export default function AccountMenu({ currentPage, token, username }: Prop) {
         </MenuItem>
 
         <Divider />
+
+        {isAdmin &&
+        <Link 
+          href="/admin" 
+          underline="none"
+          sx={{
+            color: 'gray'
+          }}>
+          <ListMenu fieldName="Admin">
+            <AdminPanelSettingsIcon fontSize="small" />
+          </ListMenu>
+        </Link>
+        }
+
         <Link 
           href="/collectables" 
           underline="none"
           sx={{
             color: 'gray'
-          }}
-        >
+          }}>
           <ListMenu fieldName="My Collectables">
             <StorageIcon fontSize="small" />
           </ListMenu>
@@ -163,8 +183,7 @@ export default function AccountMenu({ currentPage, token, username }: Prop) {
           underline="none"
           sx={{
             color: 'gray'
-          }}
-        >
+          }}>
           <ListMenu fieldName="Transactions History">
             <ManageSearchIcon fontSize="small" />
           </ListMenu>
@@ -175,8 +194,7 @@ export default function AccountMenu({ currentPage, token, username }: Prop) {
           underline="none"
           sx={{
             color: 'gray'
-          }}
-        >
+          }}>
           <ListMenu 
           fieldName="Settings"
           >

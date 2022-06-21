@@ -15,7 +15,6 @@ import Dashboard from "../components/page/dashboard";
 import refresh_token from '../services/refresh_token'
 import getUserID from "../services/users/getUserID";
 import getUserName from "../services/users/getUserName";
-import isAdminUser from "../services/users/isAdminUser";
 
 //Context
 import { useCart } from "../hooks/context/useCart";
@@ -23,8 +22,8 @@ import { useCart } from "../hooks/context/useCart";
 //Global
 import getCart from "../global/functions/getCart";
 
-const Home: NextPage = (props) => {
-  const { token, cart, username, admin }: any = props;
+const Admin: NextPage = (props) => {
+  const { token, cart, username }: any = props;
   const { getCartCookie } = useCart();
 
   React.useEffect(() => {
@@ -43,11 +42,11 @@ const Home: NextPage = (props) => {
     );
   }, []);
 
-  return <Dashboard 
-           token={token} 
-           username={username}
-           isAdmin={admin}
-         />;
+  return (
+    <> 
+      <h1> admin area kkkkkkk </h1> 
+    </>
+  )
 };
 
 export const getServerSideProps = async (
@@ -59,7 +58,6 @@ export const getServerSideProps = async (
     const cart = getCart(session);
     const user_id = await getUserID(token);
     const username = await getUserName(token, user_id);
-    const admin = await isAdminUser(token, user_id);
 
     if (token === 'Token is invalid or expired') {
         return {
@@ -74,8 +72,7 @@ export const getServerSideProps = async (
       props: {
         token,
         cart,
-        username,
-        admin,
+        username
       },
     };
   } catch (e) {
@@ -88,4 +85,4 @@ export const getServerSideProps = async (
   }
 };
 
-export default Home;
+export default Admin;
