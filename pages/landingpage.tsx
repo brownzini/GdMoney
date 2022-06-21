@@ -1,5 +1,4 @@
 /* Next */
-import Router from "next/router";
 import type { NextPage } from "next";
 import { GetServerSidePropsContext } from "next";
 
@@ -16,7 +15,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 //Cookies
 import { parseCookies } from "nookies";
 
-//Components
+//Services
 import refresh_token from "../services/refresh_token";
 
 const LandingPage: NextPage = () => {
