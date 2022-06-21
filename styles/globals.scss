@@ -931,6 +931,86 @@ body::-webkit-scrollbar-thumb {
 
 }
 
+.main-settings {
+    background: white;
+    height: 100%;
+    min-height: 100vh;
+
+    .header {
+        position: absolute;
+        z-index: 1000;
+
+        header {
+            display: flex;
+            width: 100%;
+            height: 1rem;
+            padding: 30px 50px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.5s ease-in-out;
+            background: white;
+            box-shadow: -1px 1px 6px 0px grey;
+
+            a {
+                color: #AE16F0;
+
+                p {
+                    font-weight: bold;
+                }
+            }
+
+            .logo {
+                padding-top: 5px;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    section.content {
+        padding: 5%;
+        .content-settings-title {
+            font-family: roboto;
+            font-size: 1.5rem;
+            padding: 2%;
+            text-align:center;
+        }
+        .content-body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+
+            .content-username {
+                padding: 3%;
+            }
+            .content-wallet-address {
+                padding: 3%;                
+            }
+            .content-password {
+                padding: 3%;               
+            }
+            .content-newpassword {
+                padding: 3%;               
+            }
+            .content-button {
+                padding: 3%;  
+            }
+        }
+
+        .content-body::-webkit-scrollbar {
+            width: 0px;
+        }
+        
+    }
+}
+
 .progress-modal {
     display: flex;
     justify-content: center;
