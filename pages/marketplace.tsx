@@ -28,7 +28,8 @@ import { useCart } from "../hooks/context/useCart";
 //Global
 import getCart from "../global/functions/getCart";
 
-type Products = {
+import { Categories } from "../global/types/marketplace";
+interface Products {
   id: string;
   product_name:string;
   img_url: string;
@@ -38,11 +39,6 @@ type Products = {
   forSale: boolean;
   username: string;
   status:boolean;
-};
-
-type Categories = {
-  id: string;
-  category_name: string;
 };
 
 const Marketplace: NextPage = (props) => {
