@@ -28,6 +28,7 @@ import { useCart } from "../hooks/context/useCart";
 //Global
 import getCart from "../global/functions/getCart";
 
+//Types
 import { Categories } from "../global/types/marketplace";
 interface Products {
   id: string;

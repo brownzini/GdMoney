@@ -29,17 +29,9 @@ import getCart from "../global/functions/getCart";
 import MediaCard from "../components/page/collectables/MediaCard";
 import BasicModal from "../components/page/collectables/BasicModal";
 import ErrorModal from "../components/page/collectables/ErrorModal";
-interface ProductsCollectables {
-    id:string;
-    product_name:string;
-    category_name:string;
-    img_url:string;
-    forSale:boolean;
-    price:number;
-}
-interface State {
-  amount: string;
-}
+
+//Types
+import { ProductsCollectables, State } from "../global/types/collectables";
 
 const Collectables: NextPage = (props) => {
   const { token, cart, productsALL, wallet_address, username, admin }: any = props;
