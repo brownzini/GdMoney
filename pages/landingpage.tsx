@@ -1,5 +1,7 @@
 /* Next */
+import Router from "next/router";
 import type { NextPage } from "next";
+import { GetServerSidePropsContext } from "next";
 
 /* React */
 import { useEffect, useRef } from "react";
@@ -10,6 +12,12 @@ import Link from "@mui/material/Link";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+
+//Cookies
+import { parseCookies } from "nookies";
+
+//Components
+import refresh_token from "../services/refresh_token";
 
 const LandingPage: NextPage = () => {
   const ref = useRef<HTMLDivElement>({} as HTMLDivElement);
@@ -265,6 +273,33 @@ const LandingPage: NextPage = () => {
       </section>
     </div>
   );
+};
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  try {
+    const session = parseCookies(context);
+    const token = await refresh_token(session);
+
+    if (token !== 'Token is invalid or expired') {
+        return {
+          redirect: {
+            permanent: false,
+            destination: "/",
+          },
+        };       
+    }
+    return {
+      props: {
+        token,
+      },
+    };
+  } catch (e) {
+    return {
+      props: {}
+    }
+  }
 };
 
 export default LandingPage;
