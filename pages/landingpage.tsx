@@ -259,6 +259,9 @@ const LandingPage: NextPage = () => {
             />
           </Link>
         </div>
+        <div className="message"> 
+              <h5> Warning: This project is only intended to be used for means of studies.</h5>
+        </div>
       </section>
     </div>
   );
