@@ -32,9 +32,10 @@ import refresh_token from "../services/refresh_token";
 import balanceBNBtoDolar from "../services/balanceBNBtoDolar";
 import getUserID from "../services/users/getUserID";
 import getUserName from "../services/users/getUserName";
+import isAdminUser from "../services/users/isAdminUser";
 
 const Buy = (props: any) => {
-  const { token, cart, balance, username }: any = props;
+  const { token, cart, balance, username, admin }: any = props;
   const { cartProducts, getCartCookie } = useCart();
 
   const [ from, setFrom] = React.useState<string>("");
@@ -86,6 +87,7 @@ const Buy = (props: any) => {
           currentPage="Buy" 
           token={token} 
           username={username}
+          isAdmin={admin}
         />
       </section>
       <section className="content">
@@ -159,6 +161,7 @@ export const getServerSideProps = async (
     const balance = await balanceBNBtoDolar(session);
     const user_id = await getUserID(token);
     const username = await getUserName(token, user_id);
+    const admin = await isAdminUser(token, user_id);
 
     if (token === "Token is invalid or expired") {
       return {
@@ -175,6 +178,7 @@ export const getServerSideProps = async (
         cart,
         balance,
         username,
+        admin,
       },
     };
   } catch (e) {

@@ -13,6 +13,7 @@ import refresh_token from '../services/refresh_token'
 import getUserID from "../services/users/getUserID";
 import getTransactions from "../services/getTransactions";
 import getUserName from "../services/users/getUserName";
+import isAdminUser from "../services/users/isAdminUser";
 
 //Context
 import { useCart } from "../hooks/context/useCart";
@@ -25,7 +26,7 @@ import Header from "../components/Header";
 import Table from "../components/page/transactions_history/Table";
 
 const TransactionsHistory: NextPage = (props) => {
-  const { token, cart, transactions, username }: any = props;
+  const { token, cart, transactions, username, admin }: any = props;
   const { getCartCookie } = useCart();
 
   React.useEffect(() => {
@@ -51,6 +52,7 @@ const TransactionsHistory: NextPage = (props) => {
           currentPage="Transaction_Hitory" 
           token={token} 
           username={username}
+          isAdmin={admin}
         />
       </section>
       <section className="content">
@@ -92,6 +94,7 @@ export const getServerSideProps = async (
     const user_id = await getUserID(token);
     const transactions = await getTransactions(token,user_id);
     const username = await getUserName(token, user_id);
+    const admin = await isAdminUser(token, user_id);
 
     if (token === 'Token is invalid or expired') {
         return {
@@ -107,7 +110,8 @@ export const getServerSideProps = async (
         token,
         cart,
         transactions,
-        username
+        username,
+        admin,
       },
     };
   } catch (e) {

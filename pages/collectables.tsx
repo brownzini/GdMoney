@@ -17,6 +17,7 @@ import getProductByUser from "../services/users/getProductByUser";
 import getUserID from "../services/users/getUserID";
 import getWalletUser from "../services/users/getWalletUser";
 import getUserName from "../services/users/getUserName";
+import isAdminUser from "../services/users/isAdminUser";
 
 //Context
 import { useCart } from "../hooks/context/useCart";
@@ -41,7 +42,7 @@ interface State {
 }
 
 const Collectables: NextPage = (props) => {
-  const { token, cart, productsALL, wallet_address, username }: any = props;
+  const { token, cart, productsALL, wallet_address, username, admin }: any = props;
   const { getCartCookie } = useCart();
 
   const [open, setOpen] = React.useState(false);
@@ -105,6 +106,7 @@ const Collectables: NextPage = (props) => {
           currentPage="Collectables" 
           token={token} 
           username={username}
+          isAdmin={admin}
         />
       </section>
       <section className="content">
@@ -146,7 +148,8 @@ export const getServerSideProps = async (
     const user_id = await getUserID(token);
     const wallet_address = await getWalletUser(token, user_id);
     const username = await getUserName(token, user_id);
-    
+    const admin = await isAdminUser(token, user_id);
+
     if (token === 'Token is invalid or expired') {
         return {
           redirect: {
@@ -162,6 +165,7 @@ export const getServerSideProps = async (
         productsALL,
         wallet_address,
         username,
+        admin,
       },
     };
   } catch (e) {
