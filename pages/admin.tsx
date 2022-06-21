@@ -82,7 +82,7 @@ const Admin: NextPage = (props) => {
             </div>
             <div className="content-body-items">
             {products.map((product: Products, index: React.Key | null | undefined) =>
-                <div className="content-block"> 
+                <div key={index} className="content-block"> 
                     <div className="content-body-product-name"> {product.product_name} </div>
                     <div className="content-body-product-imgurl"> {product.img_url.substr(0, 4)} </div>
                     <div className="content-body-product-forsale"> {(product.forSale) ? 'true' : 'false'} </div> 
