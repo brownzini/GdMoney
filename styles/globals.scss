@@ -436,7 +436,7 @@ body::-webkit-scrollbar-thumb {
             }
 
             .signup-field {
-                width: 15rem;
+                width: 95%;
                 margin-top: 1rem;
             }
         }
@@ -1246,7 +1246,7 @@ body::-webkit-scrollbar-thumb {
         .box-content {
             width: 26vw;
             height: auto;
-            min-height: 60vh;
+            max-height: 56vh;
 
             .form {
                 button {
@@ -1693,8 +1693,7 @@ body::-webkit-scrollbar-thumb {
 
         .box-content {
             width: 80vw;
-            min-height: 60vh;
-            height: auto;
+            height: 100%;
 
             .heading {
                 header {
@@ -1728,7 +1727,7 @@ body::-webkit-scrollbar-thumb {
                 }
 
                 .signup-field {
-                    font-size: 1.5rem;
+                    font-size: 1rem;
                 }
             }
         }
