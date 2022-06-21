@@ -1055,6 +1055,8 @@ body::-webkit-scrollbar-thumb {
     section.content {
         padding: 5%;
         .content-th-title {
+            display: flex;
+            justify-content: space-between;
             font-family: roboto;
             font-size: 1.5rem;
             padding: 2%;
@@ -1077,28 +1079,30 @@ body::-webkit-scrollbar-thumb {
                     text-align: center;
                     color:black;
                     .content-head-product-name {
-                        width: 100%;
+                        width: 75%;
                     }
                     .content-head-product-imgurl {
-                        width: 100%;
+                        width: 75%;
                     }
                     .content-head-product-forsale {
-                        width: 100%;
+                        width: 50%;
                     }
                     .content-head-product-price {
-                        width: 100%;
+                        width: 58%;
                     }
                     .content-head-product-userid {
-                        width: 100%;
+                        width: 75%;
                     }
                     .content-head-product-categoryid {
                         width: 100%;
+                        margin-left: 5%;
                     }
                     .content-head-product-status {
-                        width: 100%;
+                        width: 10%;
                     }
                     .content-head-product-data {
                         width: 100%;
+                        margin-right: 3%;
                     }
                 }
                 .content-body-items {
@@ -1133,6 +1137,7 @@ body::-webkit-scrollbar-thumb {
                     }
                     .content-body-product-categoryid {
                         width: 100%;
+                        margin-left: 1%;
                     }                    
                     .content-body-product-data {
                         width: 100%;
@@ -1144,6 +1149,10 @@ body::-webkit-scrollbar-thumb {
             }
         }
     }
+}
+
+.main-modal {
+    width:20%;
 }
 
 .progress-modal {

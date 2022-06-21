@@ -156,7 +156,6 @@ export default function AccountMenu({
 
         {isAdmin &&
         <Link 
-          href="/admin" 
           underline="none"
           sx={{
             color: 'gray'
