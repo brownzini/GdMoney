@@ -459,7 +459,7 @@ body::-webkit-scrollbar-thumb {
 
     .box-content {
         width: 20vw;
-        height: 65vh;
+        height: 50%;
         background: #fff;
         z-index: 1000;
         box-shadow: 1px 1px 11px 0px;
@@ -496,6 +496,12 @@ body::-webkit-scrollbar-thumb {
 
             .field-repassword {
                 margin-top: 2.5rem;
+            }
+
+            .button {
+                button {
+                    width: 90%;
+                }
             }
         }
     }
@@ -1260,9 +1266,8 @@ body::-webkit-scrollbar-thumb {
     .main-signup {
         .box-content {
             width: 26vw;
-            height: auto;
-            min-height: 60vh;
-
+            max-height: 70%;
+            height: 50%;
             .form {
                 button {
                     width: 90%;
@@ -1468,7 +1473,6 @@ body::-webkit-scrollbar-thumb {
 
         .box-content {
             width: 40vw;
-            height: 45vh;
         }
 
         .group-images {
@@ -1662,7 +1666,6 @@ body::-webkit-scrollbar-thumb {
         .box-content {
             width: auto;
             height: auto;
-            min-height: 80vh;
 
             button {
                 width: 90%;
@@ -1748,8 +1751,6 @@ body::-webkit-scrollbar-thumb {
 
         .box-content {
             width: 80vw;
-            min-height: 60vh;
-            height: auto;
 
             .heading {
                 header {
@@ -1814,9 +1815,7 @@ body::-webkit-scrollbar-thumb {
     .main-signup {
         .box-content {
             width: auto;
-            height: auto;
-            min-width: 20vw;
-            min-height: 65vh;
+            height: 93%;
         }
     }
 }
