@@ -49,8 +49,8 @@ const validationSchema = yup.object().shape({
       .max(25, "Must be less than 25 characters"),
     newpassword: yup
       .string()
-      .oneOf([yup.ref("password"), null], "Passwords must match")
-      .required(),
+      .required("The re-password is required ")
+      .max(25, "Must be less than 25 characters"),
 });
 interface Props {
     username:string;

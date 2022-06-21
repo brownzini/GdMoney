@@ -145,7 +145,6 @@ const Buy = (props: any) => {
         </Button>
         </>
       }
-
       </section>
     </div>
   );
