@@ -1,6 +1,7 @@
 /* Next */
-import type { NextPage } from "next";
 import Router from "next/router";
+import type { NextPage } from "next";
+import { GetServerSidePropsContext } from "next";
 
 /* React */
 import { useState } from "react";
@@ -15,12 +16,14 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-//Components
-import api from "../services/api";
-
 //Yup and Formik
 import * as yup from "yup";
 import { useFormik } from "formik";
+
+//Services
+import api from "../services/api";
+import refresh_token from "../services/refresh_token";
+import { parseCookies } from "nookies";
 
 type State = {
   showPassword: boolean;
@@ -244,6 +247,33 @@ const Signup: NextPage = () => {
       </div>
     </div>
   );
+};
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  try {
+    const session = parseCookies(context);
+    const token = await refresh_token(session);
+
+    if (token !== 'Token is invalid or expired') {
+        return {
+          redirect: {
+            permanent: false,
+            destination: "/",
+          },
+        };
+    }
+    return {
+      props: {
+        token,
+      },
+    };
+  } catch (e) {
+    return {
+      props: {}
+    }
+  }
 };
 
 export default Signup;
