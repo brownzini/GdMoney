@@ -10,7 +10,7 @@ const changePassword = async (
   let message = '';
   await api.put(`/users/changepassword/${id}`, { 
         password: password,
-        newPassword: newpassword,
+        newPassword: (newpassword === '') ? password : newpassword,
   }, {
         headers: {
             Authorization: `Bearer ${token}`,
