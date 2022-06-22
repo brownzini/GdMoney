@@ -103,6 +103,7 @@ const Settings: NextPage = (props) => {
     if (response !== 'Success') {
         formik.errors.password = 'Wrong password';
         setError(true);
+        setStatus(false);
     } else {
         await changeData(user_id, token, values.username, values.wallet_address);
         setOpen(true);

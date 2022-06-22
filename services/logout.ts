@@ -14,7 +14,7 @@ const logout = async (token:string) => {
       .then(function (response) {
          Router.push("/landingpage");
       }).catch(error => {
-         error.data.message;
+         error;
       })
     }
 }
