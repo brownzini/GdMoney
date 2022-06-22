@@ -113,6 +113,7 @@ const Marketplace: NextPage = (props) => {
               startIndex={startIndex}
               endIndex={endIndex}
               balanceUSD={balance}
+              setCurrentPage={setCurrentPage}
             />
             <PaginationItems 
               currentPage={currentPage}

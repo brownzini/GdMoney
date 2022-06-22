@@ -34,6 +34,7 @@ type Props = {
   startIndex:number;
   endIndex:number;
   balanceUSD:number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export default function Products({
@@ -44,6 +45,7 @@ export default function Products({
   startIndex,
   endIndex,
   balanceUSD,
+  setCurrentPage,
 }: Props) {
   const balance = Number(balanceUSD);
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
@@ -75,6 +77,7 @@ export default function Products({
 
   React.useEffect(() => {
     setProducts([]);
+    setCurrentPage(1);
     getProductsByCategory();
   }, [id_category]);
 
