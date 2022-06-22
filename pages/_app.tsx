@@ -28,7 +28,7 @@ export default function MyApp(props: MyAppProps) {
       <Head>
         <title>GdMoney Project</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <ThemeProvider theme={theme}>
         <ProductsProvider>
