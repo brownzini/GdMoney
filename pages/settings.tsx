@@ -49,7 +49,6 @@ const validationSchema = yup.object().shape({
       .max(25, "Must be less than 25 characters"),
     newpassword: yup
       .string()
-      .required("The re-password is required ")
       .max(25, "Must be less than 25 characters"),
 });
 interface Props {
