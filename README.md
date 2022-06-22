@@ -1,7 +1,7 @@
 ## ❗WARNING
 This project is just an educational system, NOT a system made to carry out large transactions
 and with the same focus as nft. I developed this system only with the intention of showing that 
-I could even create an e-commerce accepting payments with cryptocurrencies outside the blockchain.
+I could even create an e-commerce (for example) accepting payments with cryptocurrencies outside the blockchain.
 
 ### 💸GdMoney
 After finishing the backend api development module of my course, I decided to develop this
