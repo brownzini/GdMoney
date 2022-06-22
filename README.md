@@ -18,3 +18,12 @@ in a different proposal, the use of cryptocurrency payments by off the blockchai
 - Material UI
 - Sass
 - Styled Components
+
+## 🚀 Starting
+Run the server
+```bash
+npm run dev
+# or
+yarn dev
+```
+Open in [http://localhost:3000](http://localhost:3000) 
