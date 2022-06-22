@@ -30,3 +30,4 @@ yarn dev
 Open in [http://localhost:3000](http://localhost:3000) 
 
 ##Functionalities
+>Cart
