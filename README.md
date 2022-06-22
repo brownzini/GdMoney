@@ -12,6 +12,7 @@ in a different proposal, the use of cryptocurrency payments by off the blockchai
 
 ## 💡Technologies
 - ReactJS
+- Firebase
 - NextJs
 - TypeScript
 - VanillaJS
