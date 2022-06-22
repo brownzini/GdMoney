@@ -7,3 +7,5 @@ I could even create an e-commerce (for example) accepting payments with cryptocu
 After finishing the backend api development module of my course, I decided to develop this
 project as a course conclusion project, where I gathered my front-end and back-end knowledge
 in a different proposal, the use of cryptocurrency payments by off the blockchain
+
+![ImagemSistema](public/assets/img//screenshot.png)
