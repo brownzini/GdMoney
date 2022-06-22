@@ -12,6 +12,7 @@ in a different proposal, the use of cryptocurrency payments by off the blockchai
 
 ## 💡Technologies
 - ReactJS
+- Firebase
 - NextJs
 - TypeScript
 - VanillaJS
@@ -27,3 +28,9 @@ npm run dev
 yarn dev
 ```
 Open in [http://localhost:3000](http://localhost:3000) 
+
+##Functionalities
+>Cart<br />
+>Authentication<br />
+>Means of payment<br />
+>Crud and some context use
