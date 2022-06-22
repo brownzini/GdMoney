@@ -108,7 +108,7 @@ const Settings: NextPage = (props) => {
         setOpen(true);
         setStatus(false);
         setTimeout(() => {
-          setOpen(false);
+          setOpen(false)
         },3000);
     }
   }
