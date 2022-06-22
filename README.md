@@ -9,3 +9,12 @@ project as a course conclusion project, where I gathered my front-end and back-e
 in a different proposal, the use of cryptocurrency payments by off the blockchain
 
 ![ImagemSistema](public/assets/img//screenshot.png)
+
+## 💡Technologies
+- ReactJS
+- NextJs
+- TypeScript
+- VanillaJS
+- Material UI
+- Sass
+- Styled Components
