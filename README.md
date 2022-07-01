@@ -10,6 +10,9 @@ in a different proposal, the use of cryptocurrency payments by off the blockchai
 
 ![ImagemSistema](public/assets/img//screenshot.png)
 
+## 📲System Video
+<a>https://www.linkedin.com/feed/update/urn:li:activity:6945430878814679041/</a>
+
 ## 💡Technologies
 - ReactJS
 - Firebase
